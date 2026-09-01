@@ -538,10 +538,11 @@ const Hero = () => {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '8px',
+                  minWidth: 0,
                 }}
               >
-                <span style={{ fontSize: '14px' }}>{node.icon}</span>
-                <div style={{ minWidth: 0 }}>
+                <span style={{ fontSize: '14px', flexShrink: 0 }}>{node.icon}</span>
+                <div style={{ minWidth: 0, flex: 1, overflow: 'hidden' }}>
                   <div style={{
                     fontFamily: 'var(--font-display)',
                     fontSize: '11px',
