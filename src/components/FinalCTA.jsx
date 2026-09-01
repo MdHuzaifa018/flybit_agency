@@ -52,8 +52,8 @@ const FinalCTA = () => {
     }}>
       <canvas ref={canvasRef} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none', opacity: 0.5 }} aria-hidden="true" />
 
-      {/* Central glow */}
-      <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '60vw', height: '60vh', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(196,154,10,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
+      {/* Central Background Glow */}
+      <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '800px', maxWidth: '100%', height: '800px', maxHeight: '100%', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(196,154,10,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
       {/* Dot grid */}
       <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)', backgroundSize: '40px 40px', pointerEvents: 'none' }} />

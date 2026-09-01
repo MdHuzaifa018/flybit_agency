@@ -239,8 +239,9 @@ const Hero = () => {
       }} />
 
       <div style={{
-        position: 'absolute', top: '-15%', right: '-8%',
-        width: '55vw', height: '55vw',
+        position: 'absolute', top: '-15%', right: 0,
+        width: '600px', maxWidth: '100%', height: '600px', maxHeight: '100%',
+        transform: 'translateX(30%)',
         borderRadius: '50%',
         background: 'radial-gradient(circle, rgba(255, 184, 0, 0.12) 0%, rgba(26, 101, 227, 0.04) 50%, transparent 70%)',
         pointerEvents: 'none',

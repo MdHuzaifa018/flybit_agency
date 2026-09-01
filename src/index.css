@@ -100,6 +100,12 @@
   padding: 0;
 }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+}
+
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
@@ -113,8 +119,13 @@ body {
   color: var(--text-primary);
   font-size: var(--text-base);
   line-height: 1.6;
-  overflow-x: hidden;
   cursor: none; /* custom cursor handles this */
+}
+
+#root {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 /* Restore cursor on touch devices */

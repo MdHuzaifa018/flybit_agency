@@ -16,7 +16,7 @@ const About = () => {
       {/* Side accent glow */}
       <div style={{
         position: 'absolute', right: 0, top: '20%',
-        width: '400px', height: '400px', borderRadius: '50%',
+        width: '400px', maxWidth: '100%', height: '400px', borderRadius: '50%',
         background: 'radial-gradient(circle, rgba(255,184,0,0.06) 0%, transparent 70%)',
         pointerEvents: 'none',
       }} />
