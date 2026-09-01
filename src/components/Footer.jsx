@@ -1,4 +1,5 @@
 import React from 'react'
+import logoImg from '../assets/logo.png'
 
 const FOOTER_SERVICES = ['Meta Ads', 'Google Ads', 'Video Editing', 'Graphic Design', 'Funnel Building', 'Website Development', 'Social Media', 'UGC Videos']
 const FOOTER_NAV = [
@@ -27,19 +28,21 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '18px' }}>
-              <div style={{
-                width: '36px', height: '36px', borderRadius: '8px',
-                background: 'linear-gradient(135deg, #C49A0A, #5C9900)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-              }}>
-                <svg width="20" height="20" viewBox="0 0 40 40" fill="none">
-                  <path d="M20 4C20 4 28 10 28 20C28 26 24 30 20 32C16 30 12 26 12 20C12 14 15 9 17 7C17 7 16 12 19 14C19 14 18 10 20 4Z" fill="rgba(23,21,15,0.9)"/>
-                  <path d="M20 16C20 16 24 19 24 23C24 26.5 22 28.5 20 30C18 28.5 16 26.5 16 23C16 20 18 17.5 19 16.5C19 16.5 18.5 19 20 20C20 20 19.5 17.5 20 16Z" fill="rgba(23,21,15,0.7)"/>
-                </svg>
-              </div>
-              <div>
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: '15px', fontWeight: '800', letterSpacing: '-0.02em', color: '#F9F7F2', lineHeight: 1 }}>FlyBit</div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '8px', letterSpacing: '0.22em', color: '#C49A0A', textTransform: 'uppercase', lineHeight: 1, marginTop: '2px' }}>AGENCY</div>
+              <img
+                src={logoImg}
+                alt="Flybit Falcon Logo"
+                style={{
+                  width: '38px',
+                  height: '38px',
+                  borderRadius: '50%',
+                  objectFit: 'cover',
+                  flexShrink: 0,
+                }}
+              />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
+                <span style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: '800', letterSpacing: '-0.03em', color: '#F9F7F2', lineHeight: 1 }}>Flybit</span>
+                <span style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: '800', letterSpacing: '-0.03em', color: '#FFB800', lineHeight: 1 }}>falcon</span>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '8px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginLeft: '6px', padding: '1px 5px', borderRadius: '4px', background: 'rgba(255,255,255,0.1)', fontWeight: '600' }}>AGENCY</span>
               </div>
             </div>
             <p style={{ fontSize: '13px', color: 'rgba(249,247,242,0.55)', lineHeight: '1.7', maxWidth: '220px', marginBottom: '22px' }}>

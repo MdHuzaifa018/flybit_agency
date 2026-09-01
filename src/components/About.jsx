@@ -73,7 +73,7 @@ const About = () => {
               boxShadow: '0 8px 32px rgba(0,0,0,0.10)',
             }}>
               <div style={{
-                fontFamily: 'var(--font-display)', fontSize: '15px',
+                fontFamily: 'var(--font-display)', fontSize: '16px',
                 fontWeight: '700', color: 'var(--text-primary)', marginBottom: '4px',
               }}>
                 Adnan Qureshi
@@ -81,25 +81,53 @@ const About = () => {
               <div style={{
                 fontFamily: 'var(--font-mono)', fontSize: '9px',
                 letterSpacing: '0.12em', color: 'var(--accent-gold)', textTransform: 'uppercase',
+                fontWeight: '600',
               }}>
-                Founder & CEO
+                Founder & CEO · 6+ Yrs Exp
               </div>
             </div>
 
-            {/* Award badge */}
+            {/* Experience badge */}
             <div style={{
               position: 'absolute', top: '20px', left: '-16px',
               background: 'var(--bg-elevated)',
-              border: '1px solid rgba(196,154,10,0.25)',
+              border: '1px solid rgba(196,154,10,0.3)',
               borderRadius: 'var(--radius-lg)',
-              padding: '10px 14px',
-              boxShadow: '0 4px 16px rgba(0,0,0,0.08)',
-              display: 'flex', alignItems: 'center', gap: '8px',
+              padding: '10px 16px',
+              boxShadow: '0 8px 24px rgba(0,0,0,0.10)',
+              display: 'flex', alignItems: 'center', gap: '10px',
             }}>
-              <span style={{ fontSize: '18px' }}>🏆</span>
+              <div style={{
+                width: '32px',
+                height: '32px',
+                borderRadius: '8px',
+                background: 'rgba(255,184,0,0.15)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '16px',
+              }}>
+                ⭐
+              </div>
               <div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--accent-gold)' }}>
-                  Digital Expert
+                <div style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '13px',
+                  fontWeight: '800',
+                  color: 'var(--text-primary)',
+                  lineHeight: 1.1,
+                }}>
+                  6+ Years
+                </div>
+                <div style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '8px',
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  color: 'var(--accent-gold)',
+                  fontWeight: '600',
+                }}>
+                  Experience
                 </div>
               </div>
             </div>
@@ -108,32 +136,26 @@ const About = () => {
           {/* Right — Story */}
           <div>
             <h2 className="text-display-md reveal-up" style={{ marginBottom: '24px' }}>
-              A digital entrepreneur who's been{' '}
+              A digital entrepreneur with{' '}
               <span style={{
                 background: 'linear-gradient(135deg, #C49A0A 0%, #8a6800 100%)',
                 WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
               }}>
-                building in public
+                6+ years of experience
               </span>{' '}
-              before it was a thing.
+              scaling brands and building digital ecosystems.
             </h2>
 
             <p className="reveal-up delay-1" style={{
               fontSize: '1rem', color: 'var(--text-secondary)', lineHeight: '1.8', marginBottom: '20px',
             }}>
-              Adnan Qureshi is a dynamic entrepreneur committed to transforming how businesses
-              grow in the digital space. With deep expertise in performance marketing, business
-              strategy, and online revenue generation, he has built one of the most recognizable
-              digital brands in the region.
+              Adnan Qureshi, Founder & CEO of Fly Bit Falcon and Flybit Agency, is a dynamic entrepreneur committed to revolutionizing digital marketing. With over <strong>6+ years of deep expertise</strong> in business strategy, online revenue generation, and performance marketing, he has built Fly Bit Falcon into a thriving hub for aspiring professionals and high-growth businesses.
             </p>
 
             <p className="reveal-up delay-2" style={{
               fontSize: '1rem', color: 'var(--text-secondary)', lineHeight: '1.8', marginBottom: '40px',
             }}>
-              Every service offered through Flybit Agency comes from real, hands-on experience —
-              running live campaigns, building funnels that convert, creating content that stops
-              the scroll, and developing websites that actually drive business outcomes.
-              This isn't theoretical knowledge. It's built from the field.
+              His vision empowers businesses with cutting-edge marketing strategies, high-converting funnel architectures, paid media mastery (Meta & Google Ads), and high-impact digital content designed to scale revenue consistently.
             </p>
 
             {/* Two brand ecosystem */}

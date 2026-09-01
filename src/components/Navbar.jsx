@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import logoImg from '../assets/logo.png'
 
 const NAV_ITEMS = [
   { label: 'Services', href: '#services' },
@@ -36,8 +37,8 @@ const Navbar = () => {
           position: 'fixed',
           top: 0, left: 0, right: 0,
           zIndex: 1000,
-          padding: scrolled ? '12px 0' : '24px 0',
-          background: scrolled ? 'rgba(249,247,242,0.95)' : 'transparent',
+          padding: scrolled ? '12px 0' : '22px 0',
+          background: scrolled ? 'rgba(249,247,242,0.96)' : 'transparent',
           backdropFilter: scrolled ? 'blur(20px)' : 'none',
           borderBottom: scrolled ? '1px solid rgba(0,0,0,0.08)' : '1px solid transparent',
           transition: 'all 400ms cubic-bezier(0.25,0.46,0.45,0.94)',
@@ -45,46 +46,61 @@ const Navbar = () => {
       >
         <div className="container-wide" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
 
-          {/* Logo — Flybit Falcon brand */}
+          {/* Logo — Exact Flybit Falcon logo & typography style */}
           <a
             href="#"
-            aria-label="Flybit Agency - Home"
-            style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}
+            aria-label="Flybit Falcon - Home"
+            style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
           >
-            {/* Flame icon matching Flybit Falcon brand */}
-            <div style={{
-              width: '38px', height: '38px',
-              borderRadius: '10px',
-              background: '#1A1916',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              flexShrink: 0,
-            }}>
-              <svg width="22" height="22" viewBox="0 0 40 40" fill="none">
-                {/* Flame shape inspired by Flybit Falcon logo */}
-                <path d="M20 4C20 4 28 10 28 20C28 26 24 30 20 32C16 30 12 26 12 20C12 14 15 9 17 7C17 7 16 12 19 14C19 14 18 10 20 4Z" fill="#D4A017"/>
-                <path d="M20 16C20 16 24 19 24 23C24 26.5 22 28.5 20 30C18 28.5 16 26.5 16 23C16 20 18 17.5 19 16.5C19 16.5 18.5 19 20 20C20 20 19.5 17.5 20 16Z" fill="#FFD700"/>
-              </svg>
-            </div>
-            <div>
-              <div style={{
+            <img
+              src={logoImg}
+              alt="Flybit Falcon Logo"
+              style={{
+                width: '42px',
+                height: '42px',
+                borderRadius: '50%',
+                objectFit: 'cover',
+                flexShrink: 0,
+                boxShadow: '0 2px 10px rgba(0,0,0,0.12)',
+              }}
+            />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
+              <span style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: '15px', fontWeight: '800',
+                fontSize: '22px',
+                fontWeight: '800',
                 letterSpacing: '-0.03em',
-                color: 'var(--text-primary)',
+                color: '#17150F',
                 lineHeight: 1,
               }}>
-                FlyBit
-              </div>
-              <div style={{
+                Flybit
+              </span>
+              <span style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '22px',
+                fontWeight: '800',
+                letterSpacing: '-0.03em',
+                color: '#FFB800',
+                lineHeight: 1,
+              }}>
+                falcon
+              </span>
+              <span style={{
                 fontFamily: 'var(--font-mono)',
-                fontSize: '8px', letterSpacing: '0.22em',
-                color: 'var(--accent-gold)',
+                fontSize: '8px',
+                letterSpacing: '0.14em',
                 textTransform: 'uppercase',
-                lineHeight: 1, marginTop: '2px',
+                color: 'var(--text-secondary)',
+                marginLeft: '8px',
+                padding: '2px 6px',
+                borderRadius: '4px',
+                background: 'rgba(0,0,0,0.06)',
+                border: '1px solid rgba(0,0,0,0.08)',
+                fontWeight: '600',
               }}>
                 AGENCY
-              </div>
+              </span>
             </div>
           </a>
 

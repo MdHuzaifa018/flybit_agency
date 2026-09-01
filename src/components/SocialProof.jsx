@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
 
 const STATS = [
-  { value: 50, suffix: '+', label: 'Projects Delivered', note: '[Replace with verified number]' },
-  { value: 30, suffix: '+', label: 'Brands Worked With', note: '[Replace with verified number]' },
-  { value: 10, suffix: '+', label: 'Industries Served', note: '[Replace with verified number]' },
-  { value: 200, suffix: '+', label: 'Digital Assets Created', note: '[Replace with verified number]' },
+  { value: 6, suffix: '+', label: 'Years of Experience' },
+  { value: 50, suffix: '+', label: 'Projects Delivered' },
+  { value: 30, suffix: '+', label: 'Brands Scaled' },
+  { value: 200, suffix: '+', label: 'Digital Assets Created' },
 ]
 
 const MARQUEE_ITEMS = [

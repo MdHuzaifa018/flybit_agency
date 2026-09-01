@@ -268,9 +268,9 @@ const Hero = () => {
             display: 'flex', gap: '40px', flexWrap: 'wrap',
           }}>
             {[
-              { num: '[XX]+', label: 'Projects' },
-              { num: '[XX]+', label: 'Brands' },
-              { num: '[XX]+', label: 'Industries' },
+              { num: '6+', label: 'Years Experience' },
+              { num: '50+', label: 'Projects Delivered' },
+              { num: '30+', label: 'Brands Scaled' },
             ].map((s) => (
               <div key={s.label}>
                 <div style={{
