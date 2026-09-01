@@ -82,7 +82,7 @@ const SERVICE_NODES = [
   {
     id: 'ugc',
     label: 'UGC Content',
-    sub: 'Authentic Creator Ads',
+    sub: 'Creator Ads',
     icon: '📱',
     color: '#0891b2',
     bg: 'rgba(8, 145, 178, 0.08)',
@@ -114,13 +114,12 @@ const Hero = () => {
 
     let t = 0
 
-    // Particle sparkle points
-    const sparkles = Array.from({ length: 35 }, () => ({
+    const sparkles = Array.from({ length: 30 }, () => ({
       x: Math.random(),
       y: Math.random(),
-      speed: 0.002 + Math.random() * 0.004,
+      speed: 0.002 + Math.random() * 0.003,
       size: 1 + Math.random() * 2,
-      opacity: 0.2 + Math.random() * 0.6,
+      opacity: 0.2 + Math.random() * 0.5,
       color: Math.random() > 0.5 ? '#FFB800' : '#1A65E3',
     }))
 
@@ -130,14 +129,14 @@ const Hero = () => {
       const cx = canvas.width / 2
       const cy = canvas.height / 2
       const orbit = Math.min(canvas.width, canvas.height) * 0.38
-      const mxOffset = (mouseRef.current.x - 0.5) * 24
-      const myOffset = (mouseRef.current.y - 0.5) * 24
+      const mxOffset = (mouseRef.current.x - 0.5) * 20
+      const myOffset = (mouseRef.current.y - 0.5) * 20
 
-      // Draw particle sparkles
+      // Sparkles
       sparkles.forEach((s) => {
         s.y -= s.speed
         if (s.y < 0) s.y = 1
-        const px = s.x * canvas.width + Math.sin(t * 2 + s.x * 10) * 8
+        const px = s.x * canvas.width + Math.sin(t * 2 + s.x * 10) * 6
         const py = s.y * canvas.height
         ctx.beginPath()
         ctx.arc(px, py, s.size, 0, Math.PI * 2)
@@ -145,10 +144,10 @@ const Hero = () => {
         ctx.fill()
       })
 
-      // Pulsing central radar ripples
+      // Central Radar Waves
       for (let r = 1; r <= 3; r++) {
         const pulseRadius = ((t * 25 + r * 60) % (orbit * 1.15)) + 45
-        const alpha = Math.max(0, 0.25 - pulseRadius / (orbit * 1.3))
+        const alpha = Math.max(0, 0.22 - pulseRadius / (orbit * 1.3))
         ctx.beginPath()
         ctx.arc(cx + mxOffset * 0.3, cy + myOffset * 0.3, pulseRadius, 0, Math.PI * 2)
         ctx.strokeStyle = `rgba(255, 184, 0, ${alpha})`
@@ -156,21 +155,20 @@ const Hero = () => {
         ctx.stroke()
       }
 
-      // Orbit tracks
+      // Orbit Circle
       ctx.beginPath()
       ctx.arc(cx + mxOffset * 0.2, cy + myOffset * 0.2, orbit, 0, Math.PI * 2)
       ctx.strokeStyle = 'rgba(0, 0, 0, 0.05)'
       ctx.lineWidth = 1
       ctx.stroke()
 
-      // Laser lines connecting center to satellites
+      // Connecting laser beams
       SERVICE_NODES.forEach((node, i) => {
         const angleRad = (node.angle * Math.PI) / 180 + t * 0.08 + i * 0.02
         const wobble = Math.sin(t * 1.2 + i * 1.5) * 6
         const nx = cx + (orbit + wobble) * Math.cos(angleRad) + mxOffset * 0.7
         const ny = cy + (orbit + wobble) * Math.sin(angleRad) + myOffset * 0.7
 
-        // Beam gradient
         const beam = ctx.createLinearGradient(cx + mxOffset * 0.3, cy + myOffset * 0.3, nx, ny)
         beam.addColorStop(0, 'rgba(255, 184, 0, 0.45)')
         beam.addColorStop(0.5, `${node.color}35`)
@@ -183,17 +181,13 @@ const Hero = () => {
         ctx.lineWidth = activeNode === node.id ? 2.5 : 1.2
         ctx.stroke()
 
-        // Flowing light pulses along the connection
         const pulsePos = (t * 0.4 + i * 0.25) % 1
         const px = (cx + mxOffset * 0.3) * (1 - pulsePos) + nx * pulsePos
         const py = (cy + myOffset * 0.3) * (1 - pulsePos) + ny * pulsePos
         ctx.beginPath()
-        ctx.arc(px, py, 3, 0, Math.PI * 2)
+        ctx.arc(px, py, 2.5, 0, Math.PI * 2)
         ctx.fillStyle = node.color
-        ctx.shadowColor = node.color
-        ctx.shadowBlur = 8
         ctx.fill()
-        ctx.shadowBlur = 0
       })
 
       t += 0.008
@@ -229,8 +223,11 @@ const Hero = () => {
         minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
+        justifyContent: 'center',
         overflow: 'hidden',
         background: 'var(--bg-base)',
+        paddingTop: 'clamp(5rem, 10vw, 7.5rem)',
+        paddingBottom: 'clamp(3rem, 6vw, 5rem)',
       }}
     >
       {/* Background decorations */}
@@ -250,29 +247,18 @@ const Hero = () => {
         filter: 'blur(40px)',
       }} />
 
-      {/* Main Grid */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: '1.1fr 1fr',
-        alignItems: 'center',
-        minHeight: '100vh',
-        maxWidth: '1440px',
-        margin: '0 auto',
-        width: '100%',
-        padding: 'clamp(6rem, 10vw, 9rem) clamp(1.5rem, 5vw, 5rem) clamp(3rem, 5vw, 5rem)',
-        gap: 'clamp(2rem, 5vw, 5rem)',
-      }}>
-        {/* Left Column — Editorial Hero Content */}
+      {/* Main Responsive Grid */}
+      <div className="hero-responsive-grid container">
+        {/* Left Column — Text & CTAs */}
         <div style={{ position: 'relative', zIndex: 10 }}>
           {/* Eyebrow badge */}
           <div style={{
-            display: 'inline-flex', alignItems: 'center', gap: '10px',
-            padding: '7px 18px', borderRadius: '100px',
+            display: 'inline-flex', alignItems: 'center', gap: '8px',
+            padding: '6px 16px', borderRadius: '100px',
             border: '1px solid rgba(255, 184, 0, 0.4)',
             background: 'rgba(255, 184, 0, 0.10)',
-            marginBottom: '32px',
+            marginBottom: '24px',
             backdropFilter: 'blur(8px)',
-            boxShadow: '0 4px 16px rgba(255, 184, 0, 0.15)',
           }}>
             <div style={{
               width: '8px', height: '8px', borderRadius: '50%',
@@ -281,23 +267,23 @@ const Hero = () => {
               animation: 'pulse 2s infinite',
             }} />
             <span style={{
-              fontFamily: 'var(--font-mono)', fontSize: '11px',
-              letterSpacing: '0.14em', textTransform: 'uppercase',
+              fontFamily: 'var(--font-mono)', fontSize: '10px',
+              letterSpacing: '0.12em', textTransform: 'uppercase',
               color: '#B57C00', fontWeight: '700',
             }}>
               Now Accepting Growth Projects
             </span>
           </div>
 
-          {/* Bold Display Headline */}
+          {/* Headline */}
           <h1 style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(2.75rem, 5.5vw, 5.6rem)',
+            fontSize: 'clamp(2.4rem, 5.5vw, 5.2rem)',
             fontWeight: '800',
-            lineHeight: '0.94',
+            lineHeight: '0.96',
             letterSpacing: '-0.035em',
             color: 'var(--text-primary)',
-            marginBottom: '28px',
+            marginBottom: '22px',
           }}>
             <span style={{ display: 'block' }}>Creative</span>
             <span style={{ display: 'block' }}>Thinking.</span>
@@ -314,28 +300,26 @@ const Hero = () => {
           {/* Subtext */}
           <p style={{
             fontFamily: 'var(--font-body)',
-            fontSize: 'clamp(1rem, 1.3vw, 1.15rem)',
-            fontWeight: '400',
-            lineHeight: '1.75',
+            fontSize: 'clamp(0.95rem, 1.25vw, 1.15rem)',
+            lineHeight: '1.7',
             color: 'var(--text-secondary)',
             maxWidth: '480px',
-            marginBottom: '42px',
+            marginBottom: '32px',
           }}>
-            We build high-converting growth systems for ambitious brands. From Meta & Google Ads
-            to automated sales funnels, high-impact video creative, and bespoke digital platforms.
+            We build high-converting digital growth systems: Meta & Google Ads, automated sales funnels, high-impact video creative, and bespoke web platforms.
           </p>
 
           {/* Action CTAs */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', alignItems: 'center' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center' }}>
             <a
               href="#contact"
               className="btn btn-primary"
               data-cursor="START"
               onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }) }}
-              style={{ fontSize: '13px', padding: '15px 32px', boxShadow: '0 8px 25px rgba(0,0,0,0.18)' }}
+              style={{ fontSize: '13px', padding: '14px 28px' }}
             >
-              Book a Strategy Call
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              Book Strategy Call
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path d="M7 17L17 7M17 7H7M17 7v10"/>
               </svg>
             </a>
@@ -344,17 +328,17 @@ const Hero = () => {
               className="btn btn-secondary"
               data-cursor="VIEW"
               onClick={(e) => { e.preventDefault(); document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' }) }}
-              style={{ fontSize: '13px', padding: '15px 30px' }}
+              style={{ fontSize: '13px', padding: '14px 26px' }}
             >
-              Explore Portfolio
+              View Portfolio
             </a>
           </div>
 
           {/* Stats Bar */}
           <div style={{
-            marginTop: '48px', paddingTop: '24px',
+            marginTop: '36px', paddingTop: '20px',
             borderTop: '1px solid var(--border-subtle)',
-            display: 'flex', gap: '36px', flexWrap: 'wrap',
+            display: 'flex', gap: 'clamp(20px, 4vw, 36px)', flexWrap: 'wrap',
           }}>
             {[
               { num: '6+', label: 'Years Experience' },
@@ -363,7 +347,7 @@ const Hero = () => {
             ].map((s) => (
               <div key={s.label}>
                 <div style={{
-                  fontFamily: 'var(--font-display)', fontSize: '1.8rem',
+                  fontFamily: 'var(--font-display)', fontSize: 'clamp(1.4rem, 2.5vw, 1.8rem)',
                   fontWeight: '800', letterSpacing: '-0.04em',
                   color: 'var(--text-primary)', lineHeight: 1,
                 }}>
@@ -371,8 +355,8 @@ const Hero = () => {
                 </div>
                 <div style={{
                   fontFamily: 'var(--font-mono)', fontSize: '9px',
-                  letterSpacing: '0.12em', textTransform: 'uppercase',
-                  color: 'var(--text-muted)', marginTop: '5px',
+                  letterSpacing: '0.1em', textTransform: 'uppercase',
+                  color: 'var(--text-muted)', marginTop: '4px',
                   fontWeight: '600',
                 }}>
                   {s.label}
@@ -382,12 +366,12 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Right Column — 3D Interactive Ecosystem with Flybit Falcon Centerpiece */}
+        {/* Right Column — 3D Interactive Ecosystem (Desktop & Tablet) */}
         <div
-          className="hide-mobile"
+          className="hero-3d-ecosystem hide-mobile"
           style={{
             position: 'relative',
-            height: 'clamp(460px, 52vw, 600px)',
+            height: 'clamp(420px, 48vw, 560px)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -406,7 +390,7 @@ const Hero = () => {
             }}
           />
 
-          {/* Central Flybit Falcon Logo Centerpiece */}
+          {/* Center Flybit Falcon Logo */}
           <div
             style={{
               position: 'relative',
@@ -418,31 +402,18 @@ const Hero = () => {
               cursor: 'pointer',
             }}
           >
-            {/* Pulsing halo */}
             <div style={{
-              position: 'absolute',
-              width: '140px',
-              height: '140px',
-              borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(255, 184, 0, 0.35) 0%, rgba(255, 184, 0, 0) 70%)',
-              animation: 'centerPulse 3s ease-in-out infinite',
-              pointerEvents: 'none',
-            }} />
-
-            {/* Emblem circle */}
-            <div style={{
-              width: '100px',
-              height: '100px',
+              width: '90px',
+              height: '90px',
               borderRadius: '50%',
               background: '#141310',
-              padding: '6px',
+              padding: '5px',
               border: '3px solid #FFB800',
               boxShadow: '0 12px 40px rgba(255, 184, 0, 0.35), 0 0 20px rgba(0,0,0,0.2)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               position: 'relative',
-              transition: 'transform 300ms var(--ease-spring)',
             }}>
               <img
                 src={logoImg}
@@ -456,42 +427,30 @@ const Hero = () => {
               />
             </div>
 
-            {/* Badge pill */}
             <div style={{
-              marginTop: '10px',
+              marginTop: '8px',
               background: 'var(--bg-elevated)',
               border: '1px solid rgba(255, 184, 0, 0.4)',
               borderRadius: '100px',
-              padding: '4px 14px',
+              padding: '3px 12px',
               boxShadow: '0 4px 16px rgba(0,0,0,0.1)',
               display: 'flex',
               alignItems: 'center',
-              gap: '6px',
+              gap: '4px',
             }}>
-              <span style={{
-                fontFamily: 'var(--font-display)',
-                fontSize: '11px',
-                fontWeight: '800',
-                letterSpacing: '-0.02em',
-                color: '#17150F',
-              }}>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '11px', fontWeight: '800', color: '#17150F' }}>
                 Flybit
               </span>
-              <span style={{
-                fontFamily: 'var(--font-display)',
-                fontSize: '11px',
-                fontWeight: '800',
-                color: '#FFB800',
-              }}>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '11px', fontWeight: '800', color: '#FFB800' }}>
                 Agency
               </span>
             </div>
           </div>
 
-          {/* Interactive Floating Service Cards surrounding the center */}
-          {SERVICE_NODES.map((node, i) => {
+          {/* Interactive Floating Service Badges */}
+          {SERVICE_NODES.map((node) => {
             const rad = (node.angle * Math.PI) / 180
-            const radiusPx = 185
+            const radiusPx = 175
             const x = Math.cos(rad) * radiusPx
             const y = Math.sin(rad) * radiusPx
 
@@ -504,7 +463,6 @@ const Hero = () => {
                   position: 'absolute',
                   transform: `translate(${x}px, ${y}px)`,
                   zIndex: 20,
-                  transition: 'all 300ms var(--ease-spring)',
                   cursor: 'pointer',
                 }}
               >
@@ -512,51 +470,25 @@ const Hero = () => {
                   style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '8px',
-                    padding: '8px 14px',
+                    gap: '7px',
+                    padding: '7px 12px',
                     borderRadius: '100px',
                     background: 'var(--bg-elevated)',
                     border: `1.5px solid ${activeNode === node.id ? node.color : node.border}`,
                     boxShadow: activeNode === node.id
-                      ? `0 10px 28px ${node.color}35, 0 2px 8px rgba(0,0,0,0.08)`
-                      : '0 4px 16px rgba(0,0,0,0.06)',
+                      ? `0 10px 24px ${node.color}35`
+                      : '0 4px 14px rgba(0,0,0,0.06)',
                     transform: activeNode === node.id ? 'scale(1.12)' : 'scale(1)',
-                    transition: 'all 250ms ease',
+                    transition: 'all 200ms ease',
                     backdropFilter: 'blur(10px)',
                   }}
                 >
-                  <span style={{
-                    fontSize: '14px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    width: '24px',
-                    height: '24px',
-                    borderRadius: '50%',
-                    background: node.bg,
-                  }}>
-                    {node.icon}
-                  </span>
+                  <span style={{ fontSize: '13px' }}>{node.icon}</span>
                   <div>
-                    <div style={{
-                      fontFamily: 'var(--font-display)',
-                      fontSize: '11px',
-                      fontWeight: '700',
-                      color: 'var(--text-primary)',
-                      lineHeight: 1.1,
-                      whiteSpace: 'nowrap',
-                    }}>
+                    <div style={{ fontFamily: 'var(--font-display)', fontSize: '10px', fontWeight: '700', color: 'var(--text-primary)', lineHeight: 1.1, whiteSpace: 'nowrap' }}>
                       {node.label}
                     </div>
-                    <div style={{
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '8px',
-                      color: node.color,
-                      fontWeight: '600',
-                      letterSpacing: '0.04em',
-                      lineHeight: 1,
-                      marginTop: '2px',
-                    }}>
+                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: '8px', color: node.color, fontWeight: '700', lineHeight: 1, marginTop: '2px' }}>
                       {node.metric}
                     </div>
                   </div>
@@ -565,81 +497,87 @@ const Hero = () => {
             )
           })}
         </div>
-      </div>
 
-      {/* Mobile view */}
-      <div className="show-mobile" style={{ padding: '2rem', paddingTop: '7rem', position: 'relative', zIndex: 10 }}>
-        <div style={{
-          display: 'flex', alignItems: 'center', gap: '10px',
-          marginBottom: '20px',
-        }}>
-          <img
-            src={logoImg}
-            alt="Flybit Falcon Logo"
-            style={{ width: '48px', height: '48px', borderRadius: '50%', border: '2px solid #FFB800' }}
-          />
-          <div>
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: '800', color: '#17150F' }}>
-              Flybit <span style={{ color: '#FFB800' }}>falcon</span>
-            </div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: 'var(--text-muted)' }}>GROWTH AGENCY</div>
-          </div>
-        </div>
-
-        <h1 style={{
-          fontFamily: 'var(--font-display)', fontSize: 'clamp(2.4rem, 10vw, 3.5rem)',
-          fontWeight: '800', lineHeight: '0.96', letterSpacing: '-0.035em',
-          color: 'var(--text-primary)', marginBottom: '18px',
-        }}>
-          Creative Thinking. <br />
-          <span style={{ background: 'linear-gradient(135deg, #FFB800 0%, #C49A0A 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-            Performance
-          </span> Execution.
-        </h1>
-
-        <p style={{ fontSize: '15px', color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '28px' }}>
-          We build digital systems that help modern businesses scale: Meta Ads, Google Ads, Funnels, Video Creative, and Web Development.
-        </p>
-
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '32px' }}>
-          <a
-            href="#contact"
-            className="btn btn-primary"
-            style={{ justifyContent: 'center' }}
-            onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }) }}
-          >
-            Book a Strategy Call ↗
-          </a>
-          <a
-            href="#work"
-            className="btn btn-secondary"
-            style={{ justifyContent: 'center' }}
-            onClick={(e) => { e.preventDefault(); document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' }) }}
-          >
-            View Portfolio
-          </a>
-        </div>
-
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
-          {SERVICE_NODES.map((node) => (
-            <div key={node.id} style={{
-              padding: '10px 14px', borderRadius: '12px',
-              background: 'var(--bg-elevated)', border: `1px solid ${node.border}`,
-              display: 'flex', alignItems: 'center', gap: '8px',
-            }}>
-              <span>{node.icon}</span>
-              <div>
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: '11px', fontWeight: '700', color: 'var(--text-primary)' }}>{node.label}</div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '8px', color: node.color, fontWeight: '600' }}>{node.metric}</div>
+        {/* Mobile Interactive Chips Grid (< 868px) */}
+        <div className="show-mobile" style={{ marginTop: '28px', flexDirection: 'column', gap: '14px', width: '100%' }}>
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px',
+            background: 'var(--bg-elevated)',
+            padding: '12px 16px',
+            borderRadius: '16px',
+            border: '1.5px solid rgba(255, 184, 0, 0.3)',
+            boxShadow: '0 4px 16px rgba(0,0,0,0.05)',
+          }}>
+            <img src={logoImg} alt="Logo" style={{ width: '40px', height: '40px', borderRadius: '50%' }} />
+            <div>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: '14px', fontWeight: '800', color: '#17150F' }}>
+                Flybit Falcon Growth Ecosystem
+              </div>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: 'var(--text-muted)' }}>
+                8 Connected Growth Channels
               </div>
             </div>
-          ))}
+          </div>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            gap: '8px',
+            width: '100%',
+          }}>
+            {SERVICE_NODES.map((node) => (
+              <div
+                key={node.id}
+                style={{
+                  padding: '9px 12px',
+                  borderRadius: '12px',
+                  background: 'var(--bg-elevated)',
+                  border: `1px solid ${node.border}`,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                }}
+              >
+                <span style={{ fontSize: '14px' }}>{node.icon}</span>
+                <div style={{ minWidth: 0 }}>
+                  <div style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '11px',
+                    fontWeight: '700',
+                    color: 'var(--text-primary)',
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                  }}>
+                    {node.label}
+                  </div>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '8px', color: node.color, fontWeight: '700' }}>
+                    {node.metric}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
       <style>{`
+        .hero-responsive-grid {
+          display: grid;
+          grid-template-columns: 1.1fr 1fr;
+          align-items: center;
+          gap: clamp(2rem, 4vw, 4rem);
+          width: 100%;
+        }
+        @media (max-width: 868px) {
+          .hero-responsive-grid {
+            grid-template-columns: 1fr !important;
+            gap: 1.5rem !important;
+          }
+        }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-        @keyframes centerPulse { 0%, 100% { transform: scale(1); opacity: 0.6; } 50% { transform: scale(1.35); opacity: 0.2; } }
       `}</style>
     </section>
   )

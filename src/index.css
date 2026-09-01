@@ -477,24 +477,33 @@ button {
 }
 
 /* ---------- RESPONSIVE HELPERS ---------- */
+/* ---------- RESPONSIVE UTILITIES ---------- */
 .hide-mobile {
-  display: block;
+  display: flex !important;
 }
 .show-mobile {
-  display: none;
+  display: none !important;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 868px) {
   .hide-mobile {
-    display: none;
+    display: none !important;
   }
   .show-mobile {
-    display: block;
+    display: flex !important;
+  }
+  
+  .container, .container-wide {
+    padding-inline: 1.25rem !important;
+  }
+  
+  .section {
+    padding-block: clamp(3.5rem, 8vw, 6rem) !important;
   }
 }
 
 /* ---------- SERVICES GRID RESPONSIVE ---------- */
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .services-bento {
     grid-template-columns: 1fr 1fr !important;
   }
@@ -503,7 +512,7 @@ button {
   }
 }
 
-@media (max-width: 580px) {
+@media (max-width: 640px) {
   .services-bento {
     grid-template-columns: 1fr !important;
   }

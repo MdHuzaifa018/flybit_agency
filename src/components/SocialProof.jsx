@@ -1,16 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react'
 
 const STATS = [
-  { value: 6, suffix: '+', label: 'Years of Experience' },
+  { value: 6, suffix: '+', label: 'Years Experience' },
   { value: 50, suffix: '+', label: 'Projects Delivered' },
   { value: 30, suffix: '+', label: 'Brands Scaled' },
-  { value: 200, suffix: '+', label: 'Digital Assets Created' },
+  { value: 200, suffix: '+', label: 'Assets Created' },
 ]
 
 const MARQUEE_ITEMS = [
-  'Performance Marketing', 'Meta Ads', 'Google Ads', 'Video Editing',
-  'Funnel Building', 'Web Development', 'Social Media', 'UGC Videos',
-  'Graphic Design', 'Lead Generation', 'Brand Strategy', 'Content Systems',
+  'Meta & Instagram Ads', 'Google Search & PMax', 'Viral Video Editing',
+  'Sales Funnels', 'Web Engineering', 'Social Media Growth', 'UGC Creator Ads',
+  'Graphic Design', 'Lead Generation', 'Conversion Rate Optimization',
 ]
 
 const useCountUp = (target, active, duration = 1800) => {
@@ -30,22 +30,23 @@ const useCountUp = (target, active, duration = 1800) => {
 }
 
 const StatItem = ({ stat, active, index }) => {
-  const count = useCountUp(stat.value, active, 1800 + index * 200)
+  const count = useCountUp(stat.value, active, 1600 + index * 150)
   return (
-    <div className="reveal-up" style={{ textAlign: 'center', padding: '40px 20px', transitionDelay: `${index * 100}ms` }}>
+    <div style={{ textAlign: 'center', padding: 'clamp(24px, 4vw, 36px) 16px' }}>
       <div style={{
         fontFamily: 'var(--font-display)',
-        fontSize: 'clamp(2.5rem, 4vw, 4rem)',
+        fontSize: 'clamp(2.2rem, 4vw, 3.8rem)',
         fontWeight: '800', letterSpacing: '-0.05em', lineHeight: 1,
         color: 'var(--text-primary)',
       }}>
         {active ? count : 0}
-        <span style={{ color: '#5C9900' }}>{stat.suffix}</span>
+        <span style={{ color: '#FFB800' }}>{stat.suffix}</span>
       </div>
       <div style={{
         fontFamily: 'var(--font-mono)', fontSize: '10px',
-        letterSpacing: '0.12em', textTransform: 'uppercase',
-        color: 'var(--text-muted)', marginTop: '12px',
+        letterSpacing: '0.1em', textTransform: 'uppercase',
+        color: 'var(--text-secondary)', marginTop: '8px',
+        fontWeight: '600',
       }}>
         {stat.label}
       </div>
@@ -60,7 +61,7 @@ const SocialProof = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setActive(true) },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     )
     if (sectionRef.current) observer.observe(sectionRef.current)
     return () => observer.disconnect()
@@ -69,47 +70,42 @@ const SocialProof = () => {
   return (
     <section ref={sectionRef} style={{ background: 'var(--bg-surface)', overflow: 'hidden' }}>
       {/* Stats grid */}
-      <div className="container" style={{ paddingBlock: 'clamp(4rem, 8vw, 7rem)' }}>
+      <div className="container" style={{ paddingBlock: 'clamp(3rem, 6vw, 5rem)' }}>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
           gap: '1px',
           background: 'var(--border-subtle)',
           border: '1px solid var(--border-subtle)',
           borderRadius: 'var(--radius-xl)',
           overflow: 'hidden',
+          boxShadow: '0 2px 10px rgba(0,0,0,0.02)',
         }}>
           {STATS.map((stat, i) => (
-            <div key={stat.label} style={{ background: 'var(--bg-surface)' }}>
+            <div key={stat.label} style={{ background: 'var(--bg-elevated)' }}>
               <StatItem stat={stat} active={active} index={i} />
             </div>
           ))}
         </div>
-        <p style={{
-          fontFamily: 'var(--font-mono)', fontSize: '10px',
-          color: 'var(--text-muted)', textAlign: 'center',
-          marginTop: '14px', letterSpacing: '0.08em',
-        }}>
-          * Numbers marked [Replace] are placeholders — update with verified data
-        </p>
       </div>
 
-      {/* Marquee */}
+      {/* Marquee ticker */}
       <div style={{
         borderTop: '1px solid var(--border-subtle)',
         borderBottom: '1px solid var(--border-subtle)',
-        padding: '18px 0', overflow: 'hidden', position: 'relative',
+        padding: '16px 0', overflow: 'hidden', position: 'relative',
         background: 'var(--bg-elevated)',
+        width: '100%',
       }}>
-        <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '100px', background: 'linear-gradient(to right, var(--bg-elevated), transparent)', zIndex: 2, pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: '100px', background: 'linear-gradient(to left, var(--bg-elevated), transparent)', zIndex: 2, pointerEvents: 'none' }} />
-        <div style={{ display: 'flex', animation: 'marquee 30s linear infinite', width: 'max-content' }}>
+        <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '80px', background: 'linear-gradient(to right, var(--bg-elevated), transparent)', zIndex: 2, pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: '80px', background: 'linear-gradient(to left, var(--bg-elevated), transparent)', zIndex: 2, pointerEvents: 'none' }} />
+        <div style={{ display: 'flex', animation: 'marquee 25s linear infinite', width: 'max-content' }}>
           {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
-            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '28px', padding: '0 28px', whiteSpace: 'nowrap' }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>
+            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '24px', padding: '0 24px', whiteSpace: 'nowrap' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--text-secondary)', fontWeight: '600' }}>
                 {item}
               </span>
-              <span style={{ color: 'var(--accent-gold)', fontSize: '10px' }}>✦</span>
+              <span style={{ color: '#FFB800', fontSize: '12px' }}>✦</span>
             </div>
           ))}
         </div>

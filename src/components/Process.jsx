@@ -53,14 +53,14 @@ const Process = () => {
     <section id="process" ref={sectionRef} style={{
       background: 'var(--bg-base)',
       borderTop: '1px solid var(--border-subtle)',
-      padding: 'clamp(5rem, 10vw, 10rem) 0',
+      padding: 'clamp(4.5rem, 8vw, 8rem) 0',
     }}>
       <div className="container">
-        <div style={{ maxWidth: '600px', marginBottom: 'clamp(3rem, 6vw, 6rem)' }}>
+        <div style={{ maxWidth: '600px', marginBottom: 'clamp(2.5rem, 5vw, 4.5rem)' }}>
           <div className="section-eyebrow reveal-fade">
             <span className="text-label">How We Work</span>
           </div>
-          <h2 className="text-display-md reveal-up" style={{ marginBottom: '16px' }}>
+          <h2 className="text-display-md reveal-up" style={{ marginBottom: '14px' }}>
             Great Work Needs{' '}
             <span style={{ background: 'linear-gradient(135deg, #C49A0A 0%, #8a6800 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
               A Clear Process.
@@ -71,9 +71,44 @@ const Process = () => {
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '60px 1fr', gap: '4rem', position: 'relative' }}>
+        {/* Mobile Horizontal Step Selector (< 768px) */}
+        <div className="show-mobile" style={{
+          overflowX: 'auto',
+          display: 'flex',
+          gap: '8px',
+          paddingBottom: '16px',
+          marginBottom: '20px',
+          width: '100%',
+        }}>
+          {STEPS.map((s, i) => (
+            <button
+              key={s.num}
+              onClick={() => setActiveStep(i)}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '8px 14px',
+                borderRadius: '100px',
+                background: activeStep === i ? s.color : 'var(--bg-elevated)',
+                color: activeStep === i ? '#fff' : 'var(--text-primary)',
+                border: `1px solid ${activeStep === i ? s.color : 'var(--border-subtle)'}`,
+                whiteSpace: 'nowrap',
+                fontWeight: '700',
+                fontSize: '12px',
+                flexShrink: 0,
+              }}
+            >
+              <span>{s.num}</span>
+              <span>{s.title}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Desktop & Tablet Timeline Layout */}
+        <div className="process-desktop-layout">
           {/* Timeline column */}
-          <div style={{ position: 'relative' }}>
+          <div className="process-timeline-track" style={{ position: 'relative' }}>
             <div style={{
               position: 'absolute', left: '23px', top: '24px', bottom: '24px',
               width: '1px', background: 'var(--border-medium)',
@@ -87,7 +122,7 @@ const Process = () => {
 
             {STEPS.map((s, i) => (
               <button key={s.num} onClick={() => setActiveStep(i)} style={{
-                display: 'flex', alignItems: 'center', marginBottom: '48px',
+                display: 'flex', alignItems: 'center', marginBottom: '44px',
                 background: 'none', border: 'none', cursor: 'pointer', padding: 0,
               }}>
                 <div style={{
@@ -98,7 +133,7 @@ const Process = () => {
                   transition: 'all 400ms var(--ease-out)', flexShrink: 0,
                   boxShadow: i === activeStep ? `0 0 20px ${s.color}30` : 'none',
                 }}>
-                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', fontWeight: '600', color: i <= activeStep ? '#fff' : 'var(--text-muted)' }}>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', fontWeight: '700', color: i <= activeStep ? '#fff' : 'var(--text-muted)' }}>
                     {s.num}
                   </span>
                 </div>
@@ -107,44 +142,48 @@ const Process = () => {
           </div>
 
           {/* Active step content */}
-          <div style={{ paddingTop: '4px' }}>
+          <div style={{ paddingTop: '4px', width: '100%' }}>
             {STEPS.map((s, i) => (
               <div key={s.num} style={{ display: i === activeStep ? 'block' : 'none', animation: i === activeStep ? 'fadeSlideIn 350ms var(--ease-out)' : 'none' }}>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
-                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', color: s.color }}>
-                    Step {s.num}
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', color: s.color, fontWeight: '700' }}>
+                    Phase {s.num}
                   </span>
                   <div style={{ width: '32px', height: '1.5px', background: s.color }} />
                 </div>
-                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem, 4vw, 3.5rem)', fontWeight: '800', letterSpacing: '-0.035em', color: 'var(--text-primary)', marginBottom: '18px', lineHeight: 1 }}>
+
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', fontWeight: '800', letterSpacing: '-0.035em', color: 'var(--text-primary)', marginBottom: '14px', lineHeight: 1 }}>
                   {s.title}
                 </h3>
-                <p style={{ fontSize: '1.05rem', color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '36px', maxWidth: '500px' }}>
+
+                <p style={{ fontSize: '1.05rem', color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '28px', maxWidth: '520px' }}>
                   {s.description}
                 </p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '36px' }}>
+
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '32px' }}>
                   {s.details.map((d) => (
                     <div key={d} style={{
-                      padding: '10px 16px', borderRadius: 'var(--radius-lg)',
+                      padding: '8px 14px', borderRadius: 'var(--radius-lg)',
                       background: `${s.color}08`, border: `1px solid ${s.color}25`,
-                      fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.06em',
-                      color: s.color, textTransform: 'uppercase',
+                      fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.04em',
+                      color: s.color, textTransform: 'uppercase', fontWeight: '700',
                     }}>
                       {d}
                     </div>
                   ))}
                 </div>
-                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+
+                <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                   {i > 0 && (
-                    <button onClick={() => setActiveStep(i - 1)} className="btn btn-secondary" style={{ fontSize: '12px', padding: '10px 20px' }}>← Previous</button>
+                    <button onClick={() => setActiveStep(i - 1)} className="btn btn-secondary" style={{ fontSize: '12px', padding: '10px 18px' }}>← Previous</button>
                   )}
                   {i < STEPS.length - 1 && (
                     <button onClick={() => setActiveStep(i + 1)} className="btn btn-primary" style={{ fontSize: '12px', padding: '10px 20px' }}>Next Step →</button>
                   )}
                   {i === STEPS.length - 1 && (
-                    <a href="#contact" className="btn btn-primary" style={{ fontSize: '12px', padding: '10px 20px' }}
+                    <a href="#contact" className="btn btn-primary" style={{ fontSize: '12px', padding: '10px 22px' }}
                       onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }) }}>
-                      Start the Process ↗
+                      Start Your Growth Engine ↗
                     </a>
                   )}
                 </div>
@@ -155,10 +194,21 @@ const Process = () => {
       </div>
 
       <style>{`
-        @keyframes fadeSlideIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
-        @media (max-width: 640px) {
-          #process > div > div:last-child { grid-template-columns: 40px 1fr !important; gap: 1.5rem !important; }
+        .process-desktop-layout {
+          display: grid;
+          grid-template-columns: 60px 1fr;
+          gap: clamp(1.5rem, 4vw, 4rem);
+          position: relative;
         }
+        @media (max-width: 768px) {
+          .process-desktop-layout {
+            grid-template-columns: 1fr !important;
+          }
+          .process-timeline-track {
+            display: none !important;
+          }
+        }
+        @keyframes fadeSlideIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
       `}</style>
     </section>
   )
