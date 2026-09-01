@@ -250,7 +250,7 @@ const Hero = () => {
       {/* Main Responsive Grid */}
       <div className="hero-responsive-grid container">
         {/* Left Column — Text & CTAs */}
-        <div style={{ position: 'relative', zIndex: 10, minWidth: 0 }}>
+        <div style={{ position: 'relative', zIndex: 10 }}>
           {/* Eyebrow badge */}
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: '8px',
@@ -278,14 +278,12 @@ const Hero = () => {
           {/* Headline */}
           <h1 style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(1.8rem, 10vw, 5.2rem)',
+            fontSize: 'clamp(2.4rem, 5.5vw, 5.2rem)',
             fontWeight: '800',
             lineHeight: '0.96',
             letterSpacing: '-0.035em',
             color: 'var(--text-primary)',
             marginBottom: '22px',
-            wordWrap: 'break-word',
-            overflowWrap: 'break-word',
           }}>
             <span style={{ display: 'block' }}>Creative</span>
             <span style={{ display: 'block' }}>Thinking.</span>

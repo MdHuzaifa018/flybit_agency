@@ -119,8 +119,6 @@ body {
   color: var(--text-primary);
   font-size: var(--text-base);
   line-height: 1.6;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
   cursor: none; /* custom cursor handles this */
 }
 
