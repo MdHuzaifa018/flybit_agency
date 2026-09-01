@@ -54,7 +54,7 @@ const WhyUs = () => {
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: '20px' }}>
           {PILLARS.map((pillar, i) => (
             <div key={pillar.title} className="reveal-up"
               style={{

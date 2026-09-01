@@ -32,7 +32,7 @@ const FlybitFalcon = () => {
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px', maxWidth: '900px', margin: '0 auto' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '20px', maxWidth: '900px', margin: '0 auto' }}>
           {/* Flybit Falcon */}
           <div className="reveal-up" style={{
             padding: 'clamp(2rem, 4vw, 3rem)', borderRadius: 'var(--radius-2xl)',

@@ -62,7 +62,7 @@ const Footer = () => {
         {/* Top row */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))',
           gap: 'clamp(2rem, 4vw, 5rem)',
           paddingBottom: 'clamp(3rem, 6vw, 5rem)',
           borderBottom: '1px solid rgba(255,255,255,0.1)',

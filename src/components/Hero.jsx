@@ -241,7 +241,6 @@ const Hero = () => {
       <div style={{
         position: 'absolute', top: '-15%', right: 0,
         width: '600px', maxWidth: '100%', height: '600px', maxHeight: '100%',
-        transform: 'translateX(30%)',
         borderRadius: '50%',
         background: 'radial-gradient(circle, rgba(255, 184, 0, 0.12) 0%, rgba(26, 101, 227, 0.04) 50%, transparent 70%)',
         pointerEvents: 'none',
@@ -251,7 +250,7 @@ const Hero = () => {
       {/* Main Responsive Grid */}
       <div className="hero-responsive-grid container">
         {/* Left Column — Text & CTAs */}
-        <div style={{ position: 'relative', zIndex: 10 }}>
+        <div style={{ position: 'relative', zIndex: 10, minWidth: 0 }}>
           {/* Eyebrow badge */}
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: '8px',
@@ -279,12 +278,14 @@ const Hero = () => {
           {/* Headline */}
           <h1 style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(2.4rem, 5.5vw, 5.2rem)',
+            fontSize: 'clamp(1.8rem, 10vw, 5.2rem)',
             fontWeight: '800',
             lineHeight: '0.96',
             letterSpacing: '-0.035em',
             color: 'var(--text-primary)',
             marginBottom: '22px',
+            wordWrap: 'break-word',
+            overflowWrap: 'break-word',
           }}>
             <span style={{ display: 'block' }}>Creative</span>
             <span style={{ display: 'block' }}>Thinking.</span>

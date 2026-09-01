@@ -138,7 +138,7 @@ const About = () => {
 
             {/* Two brand ecosystem grid */}
             <div className="reveal-up delay-3" style={{
-              display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px', marginBottom: '36px',
+              display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '14px', marginBottom: '36px',
             }}>
               <div style={{
                 padding: '18px', borderRadius: 'var(--radius-lg)',

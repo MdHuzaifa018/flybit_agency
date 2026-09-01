@@ -73,7 +73,7 @@ const SocialProof = () => {
       <div className="container" style={{ paddingBlock: 'clamp(3rem, 6vw, 5rem)' }}>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 140px), 1fr))',
           gap: '1px',
           background: 'var(--border-subtle)',
           border: '1px solid var(--border-subtle)',

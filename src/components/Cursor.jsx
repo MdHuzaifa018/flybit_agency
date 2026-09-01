@@ -68,7 +68,7 @@ const Cursor = () => {
   return (
     <>
       {/* Dot */}
-      <div ref={dotRef} aria-hidden="true" style={{
+      <div ref={dotRef} className="hide-mobile" aria-hidden="true" style={{
         position: 'fixed', top: 0, left: 0,
         width: '8px', height: '8px', borderRadius: '50%',
         background: 'var(--text-primary)',
@@ -78,7 +78,7 @@ const Cursor = () => {
       }} />
 
       {/* Ring */}
-      <div ref={ringRef} aria-hidden="true" style={{
+      <div ref={ringRef} className="hide-mobile" aria-hidden="true" style={{
         position: 'fixed', top: 0, left: 0,
         width: '40px', height: '40px', borderRadius: '50%',
         border: '1.5px solid rgba(23,21,15,0.25)',

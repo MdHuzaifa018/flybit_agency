@@ -106,7 +106,6 @@ const Testimonials = () => {
       <div style={{
         position: 'absolute', top: '10%', right: 0,
         width: '600px', maxWidth: '100%', height: '600px', maxHeight: '100%', borderRadius: '50%',
-        transform: 'translateX(30%)',
         background: 'radial-gradient(circle, rgba(255, 184, 0, 0.06) 0%, transparent 70%)',
         pointerEvents: 'none',
       }} />
@@ -301,7 +300,7 @@ const Testimonials = () => {
         {/* Responsive Grid of All Reviews */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
           gap: '16px',
         }}>
           {REVIEWS.map((rev, idx) => (
