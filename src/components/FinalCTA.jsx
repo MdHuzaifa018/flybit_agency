@@ -132,9 +132,10 @@ const FinalCTA = () => {
           paddingTop: '40px', borderTop: '1px solid rgba(255,255,255,0.1)',
         }}>
           {[
-            { label: 'Email', value: 'hello@flybitagency.com', href: 'mailto:hello@flybitagency.com' },
-            { label: 'Response Time', value: '24–48 hours' },
-            { label: 'Education Platform', value: 'flybitfalcon.com', href: 'https://flybitfalcon.com', external: true },
+            { label: 'Direct Call / WhatsApp', value: '+91 8318956754', href: 'tel:+918318956754' },
+            { label: 'Official Email', value: 'support@flybitfalcon.com', href: 'mailto:support@flybitfalcon.com' },
+            { label: 'Location', value: 'Lucknow, Uttar Pradesh' },
+            { label: 'EdTech Platform', value: 'flybitfalcon.com ↗', href: 'https://flybitfalcon.com', external: true },
           ].map((item) => (
             <div key={item.label} style={{ textAlign: 'center' }}>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(249,247,242,0.4)', marginBottom: '6px' }}>
@@ -142,11 +143,11 @@ const FinalCTA = () => {
               </div>
               {item.href ? (
                 <a href={item.href} target={item.external ? '_blank' : undefined} rel={item.external ? 'noopener noreferrer' : undefined}
-                  style={{ fontFamily: 'var(--font-display)', fontSize: '14px', fontWeight: '600', color: '#D4A017', letterSpacing: '-0.01em' }}>
+                  style={{ fontFamily: 'var(--font-display)', fontSize: '14px', fontWeight: '600', color: '#FFB800', letterSpacing: '-0.01em', textDecoration: 'none' }}>
                   {item.value}
                 </a>
               ) : (
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: '14px', fontWeight: '600', color: 'rgba(249,247,242,0.8)' }}>
+                <div style={{ fontFamily: 'var(--font-display)', fontSize: '14px', fontWeight: '600', color: 'rgba(249,247,242,0.85)' }}>
                   {item.value}
                 </div>
               )}

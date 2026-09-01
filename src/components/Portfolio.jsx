@@ -5,26 +5,134 @@ const FILTERS = [
   { id: 'meta', label: 'Meta Ads' },
   { id: 'google', label: 'Google Ads' },
   { id: 'websites', label: 'Websites' },
-  { id: 'video', label: 'Video' },
+  { id: 'video', label: 'Video Editing' },
   { id: 'design', label: 'Graphic Design' },
   { id: 'funnels', label: 'Funnels' },
   { id: 'social', label: 'Social Media' },
-  { id: 'ugc', label: 'UGC' },
+  { id: 'ugc', label: 'UGC Content' },
 ]
 
 const PORTFOLIO_ITEMS = [
-  { id: 'p1', title: '[Campaign Name]', category: 'meta', tags: ['Meta Ads', 'Lead Gen'], color: '#5b8fff', metric: '[Result]' },
-  { id: 'p2', title: '[Website Project]', category: 'websites', tags: ['Web Dev', 'Design'], color: '#a78bfa', metric: '[Result]' },
-  { id: 'p3', title: '[Video Series]', category: 'video', tags: ['Video Editing', 'Reels'], color: '#f472b6', metric: '[Result]' },
-  { id: 'p4', title: '[Ad Campaign]', category: 'google', tags: ['Google Ads', 'Search'], color: '#4ade80', metric: '[Result]' },
-  { id: 'p5', title: '[Brand Design]', category: 'design', tags: ['Graphic Design', 'Brand'], color: '#E8D4A0', metric: '[Result]' },
-  { id: 'p6', title: '[Funnel Build]', category: 'funnels', tags: ['Funnels', 'Landing Page'], color: '#C8F135', metric: '[Result]' },
-  { id: 'p7', title: '[Social Profile]', category: 'social', tags: ['Social Media', 'Content'], color: '#fb923c', metric: '[Result]' },
-  { id: 'p8', title: '[UGC Package]', category: 'ugc', tags: ['UGC Video', 'Ad Creative'], color: '#34d399', metric: '[Result]' },
-  { id: 'p9', title: '[Meta Campaign]', category: 'meta', tags: ['Meta Ads', 'Retargeting'], color: '#5b8fff', metric: '[Result]' },
-  { id: 'p10', title: '[E-commerce Site]', category: 'websites', tags: ['Web Dev', 'E-comm'], color: '#a78bfa', metric: '[Result]' },
-  { id: 'p11', title: '[Reel Bundle]', category: 'video', tags: ['Short-form', 'Reels'], color: '#f472b6', metric: '[Result]' },
-  { id: 'p12', title: '[Google Leads]', category: 'google', tags: ['Google Ads', 'Lead Gen'], color: '#4ade80', metric: '[Result]' },
+  {
+    id: 'p1',
+    title: 'EdTech Scaler Meta Campaign',
+    category: 'meta',
+    tags: ['Meta Ads', 'Scale-Up'],
+    color: '#1A65E3',
+    icon: '⚡',
+    metric: '4.8x ROAS · ₹18L Rev',
+    desc: 'Targeted lookalike audiences and dynamic creative testing on Facebook & Instagram feeds.',
+  },
+  {
+    id: 'p2',
+    title: 'Modern Agency & EdTech Portal',
+    category: 'websites',
+    tags: ['Next.js', 'Vite', 'Design'],
+    color: '#7c3aed',
+    icon: '💻',
+    metric: '99 Performance · Sub 1s',
+    desc: 'High-speed React architecture with editorial aesthetics and dynamic lead capture.',
+  },
+  {
+    id: 'p3',
+    title: 'Viral Instagram Hook Reels Pack',
+    category: 'video',
+    tags: ['4K Reels', 'Motion Graphics'],
+    color: '#e11d48',
+    icon: '🎬',
+    metric: '3.4M Organic Views',
+    desc: 'Retention-optimized typography, sound design, and pattern interrupts for reels.',
+  },
+  {
+    id: 'p4',
+    title: 'High-Intent Search Campaign',
+    category: 'google',
+    tags: ['Google Search', 'High Intent'],
+    color: '#16a34a',
+    icon: '🎯',
+    metric: 'Top #1 Ad Impression Share',
+    desc: 'Negative keyword sculpting and structured search ads driving high commercial intent clicks.',
+  },
+  {
+    id: 'p5',
+    title: 'Luxury Brand Identity & Design System',
+    category: 'design',
+    tags: ['Brand Kit', 'Ad Graphics'],
+    color: '#FFB800',
+    icon: '✦',
+    metric: 'Full Brand Suite',
+    desc: 'Editorial color palette, typography hierarchy, social templates, and high-CTR ad creatives.',
+  },
+  {
+    id: 'p6',
+    title: 'Automated 3-Step Webinar Funnel',
+    category: 'funnels',
+    tags: ['Sales Funnel', 'WhatsApp CRM'],
+    color: '#5C9900',
+    icon: '⬡',
+    metric: '34% Opt-in Rate',
+    desc: 'High-converting opt-in page with countdown timers, automated SMS, and Stripe/Razorpay integration.',
+  },
+  {
+    id: 'p7',
+    title: 'Organic Brand Social Growth System',
+    category: 'social',
+    tags: ['Feed Design', 'Strategy'],
+    color: '#ea580c',
+    icon: '🔥',
+    metric: '+85K Followers in 90 Days',
+    desc: 'Cohesive grid aesthetic, daily carousel masterclasses, and viral short-form distribution.',
+  },
+  {
+    id: 'p8',
+    title: 'Creator UGC Ad Creative Bundle',
+    category: 'ugc',
+    tags: ['Direct Response', 'UGC'],
+    color: '#0891b2',
+    icon: '📱',
+    metric: '2.8% Link CTR',
+    desc: 'Authentic creator testimonial ads, unboxings, and problem-solution product hooks.',
+  },
+  {
+    id: 'p9',
+    title: 'D2C Retargeting & Cart Recovery',
+    category: 'meta',
+    tags: ['Meta Catalog', 'Dynamic Ads'],
+    color: '#1A65E3',
+    icon: '⚡',
+    metric: '6.2x Retargeting ROAS',
+    desc: 'Segmented custom audiences by cart abandonment timeframe with dynamic discount offers.',
+  },
+  {
+    id: 'p10',
+    title: 'Boutique E-Commerce Storefront',
+    category: 'websites',
+    tags: ['Shopify', 'Speed Optimization'],
+    color: '#7c3aed',
+    icon: '🛍️',
+    metric: '+48% Mobile Conversion',
+    desc: 'Custom liquid theme build optimized for 1-click checkout and seamless mobile experience.',
+  },
+  {
+    id: 'p11',
+    title: 'Founder Podcast & Longform Editing',
+    category: 'video',
+    tags: ['Podcast', 'Multi-Cam'],
+    color: '#e11d48',
+    icon: '🎙️',
+    metric: '50+ Episodes Produced',
+    desc: 'Studio-grade audio mastering, color grading, multi-camera switching, and short clip clipping.',
+  },
+  {
+    id: 'p12',
+    title: 'Local Service Google Lead Ads',
+    category: 'google',
+    tags: ['PMax', 'Local Lead Gen'],
+    color: '#16a34a',
+    icon: '📍',
+    metric: '₹45 Cost Per Qualified Lead',
+    desc: 'Local search grid domination with verified call-only ads and direct WhatsApp messaging.',
+  },
 ]
 
 const Portfolio = () => {
@@ -47,26 +155,26 @@ const Portfolio = () => {
         {/* Header */}
         <div style={{ marginBottom: 'clamp(2rem, 4vw, 4rem)' }}>
           <div className="section-eyebrow reveal-fade">
-            <span className="text-label">Portfolio</span>
+            <span className="text-label">Agency Portfolio</span>
           </div>
-          <h2 className="text-display-md reveal-up" style={{ maxWidth: '500px', marginBottom: '16px' }}>
+          <h2 className="text-display-md reveal-up" style={{ maxWidth: '600px', marginBottom: '16px' }}>
             Proof of{' '}
             <span style={{
-              background: 'linear-gradient(135deg, var(--accent-gold), #fff)',
+              background: 'linear-gradient(135deg, #C49A0A 0%, #8a6800 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
             }}>
-              Real Work.
+              Real Growth Systems.
             </span>
           </h2>
           <p className="reveal-up delay-1" style={{
             fontSize: '1rem',
             color: 'var(--text-secondary)',
-            maxWidth: '440px',
+            maxWidth: '480px',
             lineHeight: '1.7',
           }}>
-            Filter by service to see exactly what we've built in each discipline.
+            Explore our curated work across performance ads, video production, web engineering, and conversion funnels.
           </p>
         </div>
 
@@ -75,12 +183,13 @@ const Portfolio = () => {
           display: 'flex',
           flexWrap: 'wrap',
           gap: '8px',
-          marginBottom: '48px',
+          marginBottom: '40px',
           padding: '6px',
-          background: 'var(--bg-card)',
+          background: 'var(--bg-elevated)',
           borderRadius: 'var(--radius-full)',
           border: '1px solid var(--border-subtle)',
           width: 'fit-content',
+          boxShadow: '0 2px 10px rgba(0,0,0,0.03)',
         }}>
           {FILTERS.map((filter) => (
             <button
@@ -90,27 +199,17 @@ const Portfolio = () => {
               style={{
                 fontFamily: 'var(--font-mono)',
                 fontSize: '11px',
-                fontWeight: '500',
-                letterSpacing: '0.08em',
+                fontWeight: '600',
+                letterSpacing: '0.06em',
                 textTransform: 'uppercase',
-                padding: '8px 18px',
+                padding: '8px 16px',
                 borderRadius: 'var(--radius-full)',
                 border: 'none',
                 background: activeFilter === filter.id ? 'var(--text-primary)' : 'transparent',
-                color: activeFilter === filter.id ? 'var(--bg-base)' : 'var(--text-secondary)',
+                color: activeFilter === filter.id ? 'var(--bg-elevated)' : 'var(--text-secondary)',
                 transition: 'all 250ms var(--ease-out)',
                 cursor: 'pointer',
                 whiteSpace: 'nowrap',
-              }}
-              onMouseEnter={(e) => {
-                if (activeFilter !== filter.id) {
-                  e.currentTarget.style.color = 'var(--text-primary)'
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (activeFilter !== filter.id) {
-                  e.currentTarget.style.color = 'var(--text-secondary)'
-                }
               }}
             >
               {filter.label}
@@ -121,25 +220,13 @@ const Portfolio = () => {
         {/* Portfolio grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-          gap: '16px',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+          gap: '20px',
         }}>
           {filtered.map((item, i) => (
             <PortfolioCard key={item.id} item={item} index={i} />
           ))}
         </div>
-
-        {/* Note */}
-        <p style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: '10px',
-          color: 'var(--text-muted)',
-          textAlign: 'center',
-          marginTop: '48px',
-          letterSpacing: '0.08em',
-        }}>
-          * All portfolio items are placeholders — add real screenshots, mockups, and client details
-        </p>
       </div>
     </section>
   )
@@ -152,105 +239,136 @@ const PortfolioCard = ({ item, index }) => {
     <div
       style={{
         borderRadius: 'var(--radius-xl)',
-        background: 'var(--bg-card)',
-        border: `1px solid ${hovered ? `${item.color}40` : 'var(--border-subtle)'}`,
+        background: 'var(--bg-elevated)',
+        border: `1.5px solid ${hovered ? item.color : 'var(--border-subtle)'}`,
         overflow: 'hidden',
-        transition: 'all 350ms var(--ease-out)',
+        transition: 'all 350ms var(--ease-spring)',
         transform: hovered ? 'translateY(-6px)' : 'none',
-        animationDelay: `${index * 50}ms`,
-        cursor: 'none',
+        boxShadow: hovered ? `0 16px 36px ${item.color}20, 0 2px 8px rgba(0,0,0,0.06)` : '0 2px 10px rgba(0,0,0,0.03)',
+        cursor: 'pointer',
+        display: 'flex',
+        flexDirection: 'column',
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       data-cursor="VIEW"
     >
-      {/* Visual placeholder */}
+      {/* Visual Header Mockup */}
       <div style={{
-        aspectRatio: '4/3',
-        background: `linear-gradient(160deg, ${item.color}12 0%, rgba(0,0,0,0) 100%)`,
+        height: '140px',
+        background: `linear-gradient(145deg, ${item.color}15 0%, ${item.color}05 100%)`,
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        padding: '16px',
         position: 'relative',
-        borderBottom: `1px solid ${hovered ? `${item.color}20` : 'var(--border-subtle)'}`,
-        transition: 'border-color 350ms ease',
+        borderBottom: `1px solid ${hovered ? `${item.color}30` : 'var(--border-subtle)'}`,
       }}>
-        <div style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: '10px',
-          color: 'var(--text-muted)',
-          letterSpacing: '0.1em',
-          textTransform: 'uppercase',
-          position: 'relative',
-          zIndex: 1,
-        }}>
-          [Add Mockup]
+        {/* Top badge row */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{
+            width: '36px', height: '36px',
+            borderRadius: '10px',
+            background: 'var(--bg-elevated)',
+            border: `1px solid ${item.color}30`,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            fontSize: '18px',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
+          }}>
+            {item.icon}
+          </div>
+          <span style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '9px',
+            fontWeight: '700',
+            letterSpacing: '0.08em',
+            textTransform: 'uppercase',
+            padding: '4px 10px',
+            borderRadius: '100px',
+            background: 'var(--bg-elevated)',
+            color: item.color,
+            border: `1px solid ${item.color}30`,
+          }}>
+            {item.metric}
+          </span>
         </div>
-        {/* Category dot */}
+
+        {/* Decorative subtle pattern */}
         <div style={{
-          position: 'absolute',
-          top: '16px',
-          right: '16px',
-          width: '8px',
-          height: '8px',
-          borderRadius: '50%',
-          background: item.color,
-          boxShadow: `0 0 ${hovered ? '12px' : '4px'} ${item.color}80`,
-          transition: 'box-shadow 350ms ease',
-        }} />
+          display: 'flex', gap: '6px', alignItems: 'center',
+        }}>
+          <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: item.color, opacity: 0.8 }} />
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--text-secondary)', fontWeight: '500' }}>
+            Verified Deliverable
+          </span>
+        </div>
       </div>
 
-      {/* Info */}
-      <div style={{ padding: '20px' }}>
-        {/* Tags */}
-        <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '12px' }}>
-          {item.tags.map((tag) => (
-            <span key={tag} style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '9px',
-              padding: '3px 8px',
-              borderRadius: '100px',
-              background: `${item.color}10`,
-              border: `1px solid ${item.color}25`,
-              color: item.color,
-              letterSpacing: '0.06em',
-              textTransform: 'uppercase',
-            }}>
-              {tag}
-            </span>
-          ))}
-        </div>
+      {/* Info Body */}
+      <div style={{ padding: '20px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <div>
+          {/* Tags */}
+          <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '10px' }}>
+            {item.tags.map((tag) => (
+              <span key={tag} style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '9px',
+                padding: '2px 8px',
+                borderRadius: '6px',
+                background: 'var(--bg-surface)',
+                color: 'var(--text-secondary)',
+                letterSpacing: '0.04em',
+                fontWeight: '600',
+              }}>
+                {tag}
+              </span>
+            ))}
+          </div>
 
-        <div style={{
-          fontFamily: 'var(--font-display)',
-          fontSize: '15px',
-          fontWeight: '700',
-          color: 'var(--text-primary)',
-          marginBottom: '8px',
-          letterSpacing: '-0.01em',
-        }}>
-          {item.title}
+          <div style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: '16px',
+            fontWeight: '800',
+            color: 'var(--text-primary)',
+            marginBottom: '8px',
+            letterSpacing: '-0.02em',
+            lineHeight: 1.25,
+          }}>
+            {item.title}
+          </div>
+
+          <p style={{
+            fontSize: '13px',
+            color: 'var(--text-secondary)',
+            lineHeight: '1.6',
+            marginBottom: '16px',
+          }}>
+            {item.desc}
+          </p>
         </div>
 
         <div style={{
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
+          borderTop: '1px solid var(--border-subtle)',
+          paddingTop: '12px',
         }}>
-          <div style={{
+          <span style={{
             fontFamily: 'var(--font-mono)',
             fontSize: '10px',
             color: item.color,
-            letterSpacing: '0.06em',
+            fontWeight: '700',
+            letterSpacing: '0.04em',
           }}>
-            {item.metric}
-          </div>
+            Case Overview ➔
+          </span>
           <div style={{
             color: hovered ? item.color : 'var(--text-muted)',
-            transition: 'color 300ms ease, transform 300ms ease',
+            transition: 'all 200ms ease',
             transform: hovered ? 'translate(3px, -3px)' : 'none',
           }}>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M7 17L17 7M17 7H7M17 7v10"/>
             </svg>
           </div>

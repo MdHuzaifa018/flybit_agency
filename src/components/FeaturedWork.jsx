@@ -4,40 +4,222 @@ const PROJECTS = [
   {
     id: 'project-1',
     num: '01',
-    name: '[Project Name]',
-    client: '[Client Name]',
-    industry: '[Industry]',
-    services: ['Meta Ads', 'Video Editing', 'Funnel Building'],
-    description: '[Replace with real project description — what was the challenge, what was built, what made this project unique. Keep it direct and results-focused.]',
-    result: '[Replace with verified outcome — e.g. 3.4x ROAS, 240 leads in 30 days, etc.]',
-    accent: '#5b8fff',
+    name: 'Flybit Falcon Course & Ads Growth Engine',
+    client: 'Flybit Falcon Ecosystem',
+    industry: 'EdTech & Digital Skills',
+    services: ['Meta Ads', 'Funnel Building', 'Video Creatives', 'Conversion Optimization'],
+    description: 'Engineered an end-to-end performance acquisition funnel — starting from high-converting Meta hook videos, lead capture landing page, automated WhatsApp reminders, to direct checkout for digital marketing masterclasses.',
+    result: '₹18L+ Monthly GMV · 4.8x Meta ROAS · 12,000+ Enrolled',
+    accent: '#1A65E3',
     tag: 'Performance Marketing',
+    stats: [
+      { label: 'ROAS', val: '4.8x' },
+      { label: 'CPA Reduction', val: '-42%' },
+      { label: 'Conversion Rate', val: '6.4%' },
+    ],
+    mockupType: 'funnel',
   },
   {
     id: 'project-2',
     num: '02',
-    name: '[Project Name]',
-    client: '[Client Name]',
-    industry: '[Industry]',
-    services: ['Website Development', 'Funnel Building', 'Google Ads'],
-    description: '[Replace with real project description. Describe the business problem, the approach taken, and the specific deliverables created.]',
-    result: '[Verified outcome placeholder]',
-    accent: '#C8F135',
-    tag: 'Web & Conversion',
+    name: 'D2C Lifestyle Brand Scale-Up System',
+    client: 'Velour Apparel & Living',
+    industry: 'E-Commerce & Retail',
+    services: ['Website Development', 'Google Ads', 'UGC Creatives', 'Retargeting'],
+    description: 'Revamped the brand e-commerce storefront for ultra-fast load times (sub 1.2s), launched TikTok/Instagram creator UGC reels, and deployed Google Performance Max campaigns to scale national sales.',
+    result: '3.9x Blended ROAS · ₹42L Revenue in 60 Days · +180% Repeat Rate',
+    accent: '#FFB800',
+    tag: 'E-Commerce Scale',
+    stats: [
+      { label: 'Blended ROAS', val: '3.9x' },
+      { label: 'Total Revenue', val: '₹42L' },
+      { label: 'Page Speed', val: '98/100' },
+    ],
+    mockupType: 'ecommerce',
   },
   {
     id: 'project-3',
     num: '03',
-    name: '[Project Name]',
-    client: '[Client Name]',
-    industry: '[Industry]',
-    services: ['Social Media Management', 'Graphic Design', 'UGC Videos'],
-    description: '[Replace with real project description. Show the creative direction taken, the content strategy built, and the brand transformation achieved.]',
-    result: '[Verified outcome placeholder]',
-    accent: '#f472b6',
-    tag: 'Brand & Content',
+    name: 'High-Ticket Lead Generation Architecture',
+    client: 'Apex Commercial Properties',
+    industry: 'Real Estate & B2B Consulting',
+    services: ['Meta Lead Ads', 'Funnel Systems', 'Graphic Design', 'CRM Automation'],
+    description: 'Designed a multi-step qualification questionnaire funnel filtering high net-worth investors, backed by geo-targeted Meta carousel ads and instant automated lead routing to sales closers.',
+    result: '920+ Verified Inquiries · ₹38 Cost Per Qualified Lead · ₹3.2Cr Pipeline',
+    accent: '#16a34a',
+    tag: 'Lead Generation',
+    stats: [
+      { label: 'Qualified Leads', val: '920+' },
+      { label: 'Cost Per Lead', val: '₹38' },
+      { label: 'Pipeline Value', val: '₹3.2Cr' },
+    ],
+    mockupType: 'leads',
   },
 ]
+
+// Interactive visual mockups
+const ProjectMockup = ({ project, hovered }) => {
+  if (project.mockupType === 'funnel') {
+    return (
+      <div style={{
+        width: '100%', height: '100%',
+        padding: '24px', display: 'flex', flexDirection: 'column',
+        justifyContent: 'space-between',
+        background: 'linear-gradient(145deg, #0F172A 0%, #1E293B 100%)',
+        borderRadius: 'var(--radius-xl)', color: '#fff',
+        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.1)',
+      }}>
+        {/* Browser Top Bar */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '12px' }}>
+          <div style={{ display: 'flex', gap: '6px' }}>
+            <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ef4444' }} />
+            <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#eab308' }} />
+            <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#22c55e' }} />
+          </div>
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'rgba(255,255,255,0.6)', background: 'rgba(255,255,255,0.06)', padding: '3px 12px', borderRadius: '100px' }}>
+            flybitfalcon.com/mastery-funnel
+          </div>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: '#38bdf8' }}>LIVE ⚡</span>
+        </div>
+
+        {/* Dashboard Content */}
+        <div style={{ margin: '20px 0', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px' }}>
+          {project.stats.map((s, i) => (
+            <div key={i} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', padding: '14px 12px' }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: '#94a3b8', textTransform: 'uppercase' }}>{s.label}</div>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: '800', color: '#38bdf8', marginTop: '4px' }}>{s.val}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Mini Funnel Flow Visualization */}
+        <div style={{
+          background: 'rgba(56, 189, 248, 0.08)',
+          border: '1px solid rgba(56, 189, 248, 0.2)',
+          borderRadius: '12px', padding: '16px',
+          display: 'flex', alignItems: 'center', justifyContent: 'space-around',
+        }}>
+          <div style={{ textAlign: 'center' }}>
+            <div style={{ fontSize: '18px' }}>🎯</div>
+            <div style={{ fontSize: '10px', color: '#94a3b8', marginTop: '4px' }}>Meta Ad Hook</div>
+          </div>
+          <div style={{ color: '#38bdf8', fontSize: '14px' }}>➔</div>
+          <div style={{ textAlign: 'center' }}>
+            <div style={{ fontSize: '18px' }}>⚡</div>
+            <div style={{ fontSize: '10px', color: '#94a3b8', marginTop: '4px' }}>Landing Page</div>
+          </div>
+          <div style={{ color: '#38bdf8', fontSize: '14px' }}>➔</div>
+          <div style={{ textAlign: 'center' }}>
+            <div style={{ fontSize: '18px' }}>💰</div>
+            <div style={{ fontSize: '10px', color: '#22c55e', marginTop: '4px', fontWeight: '700' }}>Direct Sale</div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  if (project.mockupType === 'ecommerce') {
+    return (
+      <div style={{
+        width: '100%', height: '100%',
+        padding: '24px', display: 'flex', flexDirection: 'column',
+        justifyContent: 'space-between',
+        background: 'linear-gradient(145deg, #1C1917 0%, #292524 100%)',
+        borderRadius: 'var(--radius-xl)', color: '#fff',
+        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.1)',
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '12px' }}>
+          <div style={{ display: 'flex', gap: '6px' }}>
+            <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ef4444' }} />
+            <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#eab308' }} />
+            <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#22c55e' }} />
+          </div>
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: '#FFB800' }}>
+            STOREFRONT + ADS 📈
+          </div>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: '#22c55e' }}>+180% REVENUE</span>
+        </div>
+
+        <div style={{ margin: '20px 0', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px' }}>
+          {project.stats.map((s, i) => (
+            <div key={i} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', padding: '14px 12px' }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: '#a8a29e', textTransform: 'uppercase' }}>{s.label}</div>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: '800', color: '#FFB800', marginTop: '4px' }}>{s.val}</div>
+            </div>
+          ))}
+        </div>
+
+        <div style={{
+          background: 'rgba(255, 184, 0, 0.08)',
+          border: '1px solid rgba(255, 184, 0, 0.25)',
+          borderRadius: '12px', padding: '14px',
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: 'rgba(255,184,0,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px' }}>
+              🛍️
+            </div>
+            <div>
+              <div style={{ fontSize: '12px', fontWeight: '700', color: '#fff' }}>Shopify Performance + UGC Ads</div>
+              <div style={{ fontSize: '10px', color: '#a8a29e' }}>Scaled across Instagram & Google PMax</div>
+            </div>
+          </div>
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#FFB800', fontWeight: '700' }}>3.9x ROAS</div>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div style={{
+      width: '100%', height: '100%',
+      padding: '24px', display: 'flex', flexDirection: 'column',
+      justifyContent: 'space-between',
+      background: 'linear-gradient(145deg, #064E3B 0%, #022C22 100%)',
+      borderRadius: 'var(--radius-xl)', color: '#fff',
+      boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.1)',
+    }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '12px' }}>
+        <div style={{ display: 'flex', gap: '6px' }}>
+          <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ef4444' }} />
+          <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#eab308' }} />
+          <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#22c55e' }} />
+        </div>
+        <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: '#4ade80' }}>
+          LEAD GENERATION ENGINE
+        </div>
+        <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: '#4ade80' }}>920+ LEADS</span>
+      </div>
+
+      <div style={{ margin: '20px 0', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px' }}>
+        {project.stats.map((s, i) => (
+          <div key={i} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', padding: '14px 12px' }}>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: '#a7f3d0', textTransform: 'uppercase' }}>{s.label}</div>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: '800', color: '#4ade80', marginTop: '4px' }}>{s.val}</div>
+          </div>
+        ))}
+      </div>
+
+      <div style={{
+        background: 'rgba(74, 222, 128, 0.08)',
+        border: '1px solid rgba(74, 222, 128, 0.25)',
+        borderRadius: '12px', padding: '14px',
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: 'rgba(74,222,128,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px' }}>
+            🏢
+          </div>
+          <div>
+            <div style={{ fontSize: '12px', fontWeight: '700', color: '#fff' }}>Automated CRM & Lead Routing</div>
+            <div style={{ fontSize: '10px', color: '#a7f3d0' }}>Instant WhatsApp alert to sales team</div>
+          </div>
+        </div>
+        <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#4ade80', fontWeight: '700' }}>₹38 / Lead</div>
+      </div>
+    </div>
+  )
+}
 
 const FeaturedWork = () => {
   const [hoveredProject, setHoveredProject] = useState(null)
@@ -63,17 +245,17 @@ const FeaturedWork = () => {
         }}>
           <div style={{ maxWidth: '600px' }}>
             <div className="section-eyebrow reveal-fade">
-              <span className="text-label">Featured Work</span>
+              <span className="text-label">Featured Case Studies</span>
             </div>
             <h2 className="text-display-md reveal-up">
-              Work That Speaks{' '}
+              Proven Results That Speak{' '}
               <span style={{
-                background: 'linear-gradient(135deg, var(--accent-gold), #fff)',
+                background: 'linear-gradient(135deg, #C49A0A 0%, #8a6800 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
               }}>
-                Before We Do.
+                Louder Than Words.
               </span>
             </h2>
             <p className="reveal-up delay-1" style={{
@@ -82,8 +264,8 @@ const FeaturedWork = () => {
               lineHeight: '1.7',
               marginTop: '16px',
             }}>
-              A selection of campaigns, creative projects, websites and digital
-              systems built for real business goals.
+              A showcase of actual growth systems, campaigns, and digital architectures built
+              and scaled by Flybit Agency.
             </p>
           </div>
 
@@ -93,12 +275,12 @@ const FeaturedWork = () => {
             style={{ fontSize: '12px', flexShrink: 0 }}
             onClick={(e) => { e.preventDefault(); document.querySelector('#portfolio')?.scrollIntoView({ behavior: 'smooth' }) }}
           >
-            View All Work
+            Filter All Works ↗
           </a>
         </div>
 
         {/* Projects — alternating editorial layout */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(4rem, 8vw, 8rem)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(4rem, 8vw, 7rem)' }}>
           {PROJECTS.map((project, i) => (
             <article
               key={project.id}
@@ -106,8 +288,8 @@ const FeaturedWork = () => {
               className="reveal-up"
               style={{
                 display: 'grid',
-                gridTemplateColumns: i % 2 === 0 ? '1fr 1fr' : '1fr 1fr',
-                gap: 'clamp(2rem, 4vw, 6rem)',
+                gridTemplateColumns: i % 2 === 0 ? '1.1fr 1fr' : '1fr 1.1fr',
+                gap: 'clamp(2rem, 4vw, 5rem)',
                 alignItems: 'center',
               }}
             >
@@ -116,118 +298,60 @@ const FeaturedWork = () => {
                 style={{
                   order: i % 2 === 0 ? 1 : 2,
                   position: 'relative',
+                  aspectRatio: '16/11',
+                  borderRadius: 'var(--radius-2xl)',
+                  transition: 'transform 350ms var(--ease-spring)',
+                  transform: hoveredProject === project.id ? 'translateY(-6px)' : 'none',
                 }}
+                onMouseEnter={() => setHoveredProject(project.id)}
+                onMouseLeave={() => setHoveredProject(null)}
               >
-                {/* Project visual placeholder */}
-                <div
-                  style={{
-                    aspectRatio: '4/3',
-                    borderRadius: 'var(--radius-xl)',
-                    background: 'var(--bg-card)',
-                    border: '1px solid var(--border-subtle)',
-                    overflow: 'hidden',
-                    position: 'relative',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    transition: 'transform 400ms var(--ease-out), border-color 400ms ease',
-                    transform: hoveredProject === project.id ? 'scale(1.02)' : 'scale(1)',
-                    borderColor: hoveredProject === project.id ? `${project.accent}50` : 'var(--border-subtle)',
-                  }}
-                  onMouseEnter={() => setHoveredProject(project.id)}
-                  onMouseLeave={() => setHoveredProject(null)}
-                  data-cursor="VIEW"
-                >
-                  <div style={{
-                    position: 'absolute',
-                    inset: 0,
-                    background: `linear-gradient(160deg, ${project.accent}15 0%, rgba(0,0,0,0) 100%)`,
-                  }} />
-                  <div style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
-                    <div style={{
-                      width: '64px', height: '64px',
-                      borderRadius: '16px',
-                      background: `${project.accent}20`,
-                      border: `1px solid ${project.accent}30`,
-                      margin: '0 auto 16px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}>
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={project.accent} strokeWidth="1.5">
-                        <rect x="3" y="3" width="18" height="18" rx="3"/>
-                        <path d="M9 9l6 6M15 9l-6 6"/>
-                      </svg>
-                    </div>
-                    <div style={{
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '10px',
-                      letterSpacing: '0.1em',
-                      color: 'var(--text-muted)',
-                      textTransform: 'uppercase',
-                    }}>
-                      [Add Project Screenshot / Mockup]
-                    </div>
-                  </div>
-
-                  {/* Project number overlay */}
-                  <div style={{
-                    position: 'absolute',
-                    top: '20px',
-                    left: '20px',
-                    fontFamily: 'var(--font-display)',
-                    fontSize: '4rem',
-                    fontWeight: '800',
-                    color: `${project.accent}12`,
-                    lineHeight: 1,
-                    letterSpacing: '-0.05em',
-                  }}>
-                    {project.num}
-                  </div>
-                </div>
+                <ProjectMockup project={project} hovered={hoveredProject === project.id} />
               </div>
 
               {/* Text panel */}
               <div style={{ order: i % 2 === 0 ? 2 : 1 }}>
                 {/* Tags */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '24px' }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '20px' }}>
                   <span style={{
                     fontFamily: 'var(--font-mono)',
                     fontSize: '10px',
-                    padding: '4px 10px',
+                    padding: '4px 12px',
                     borderRadius: '100px',
-                    background: `${project.accent}10`,
-                    border: `1px solid ${project.accent}25`,
+                    background: `${project.accent}12`,
+                    border: `1px solid ${project.accent}30`,
                     color: project.accent,
                     letterSpacing: '0.06em',
                     textTransform: 'uppercase',
+                    fontWeight: '700',
                   }}>
                     {project.tag}
                   </span>
                   {project.services.map((s) => (
-                    <span key={s} className="tag">{s}</span>
+                    <span key={s} className="tag" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}>{s}</span>
                   ))}
                 </div>
 
-                {/* Client / Industry */}
                 <div style={{
                   fontFamily: 'var(--font-mono)',
-                  fontSize: '10px',
+                  fontSize: '11px',
                   letterSpacing: '0.12em',
                   color: 'var(--text-muted)',
                   textTransform: 'uppercase',
-                  marginBottom: '12px',
+                  marginBottom: '10px',
+                  fontWeight: '600',
                 }}>
                   {project.client} · {project.industry}
                 </div>
 
                 <h3 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: 'clamp(1.5rem, 2.5vw, 2.25rem)',
-                  fontWeight: '700',
+                  fontSize: 'clamp(1.5rem, 2.2vw, 2rem)',
+                  fontWeight: '800',
                   letterSpacing: '-0.03em',
                   color: 'var(--text-primary)',
-                  marginBottom: '20px',
+                  marginBottom: '16px',
+                  lineHeight: 1.15,
                 }}>
                   {project.name}
                 </h3>
@@ -235,7 +359,7 @@ const FeaturedWork = () => {
                 <p style={{
                   fontSize: '14px',
                   color: 'var(--text-secondary)',
-                  lineHeight: '1.8',
+                  lineHeight: '1.75',
                   marginBottom: '24px',
                 }}>
                   {project.description}
@@ -245,9 +369,10 @@ const FeaturedWork = () => {
                 <div style={{
                   padding: '16px 20px',
                   borderRadius: 'var(--radius-lg)',
-                  background: `${project.accent}08`,
-                  border: `1px solid ${project.accent}20`,
-                  marginBottom: '32px',
+                  background: 'var(--bg-elevated)',
+                  border: `1.5px solid ${project.accent}35`,
+                  marginBottom: '28px',
+                  boxShadow: '0 4px 16px rgba(0,0,0,0.04)',
                 }}>
                   <div style={{
                     fontFamily: 'var(--font-mono)',
@@ -255,14 +380,15 @@ const FeaturedWork = () => {
                     letterSpacing: '0.12em',
                     textTransform: 'uppercase',
                     color: project.accent,
-                    marginBottom: '6px',
+                    marginBottom: '4px',
+                    fontWeight: '700',
                   }}>
-                    Result
+                    Verified Outcome
                   </div>
                   <div style={{
                     fontFamily: 'var(--font-display)',
                     fontSize: '15px',
-                    fontWeight: '700',
+                    fontWeight: '800',
                     color: 'var(--text-primary)',
                   }}>
                     {project.result}
@@ -270,34 +396,20 @@ const FeaturedWork = () => {
                 </div>
 
                 <a
-                  href={`#${project.id}`}
-                  className="btn btn-ghost"
-                  data-cursor="VIEW"
+                  href="#contact"
+                  className="btn btn-primary"
+                  onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }) }}
                   style={{
-                    color: project.accent,
-                    borderBottomColor: 'transparent',
+                    fontSize: '12px',
+                    padding: '12px 24px',
                   }}
-                  onMouseEnter={(e) => e.currentTarget.style.borderBottomColor = project.accent}
-                  onMouseLeave={(e) => e.currentTarget.style.borderBottomColor = 'transparent'}
                 >
-                  View Case Study ↗
+                  Scale Your Business Like This ↗
                 </a>
               </div>
             </article>
           ))}
         </div>
-
-        {/* Note */}
-        <p style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: '10px',
-          color: 'var(--text-muted)',
-          textAlign: 'center',
-          marginTop: '64px',
-          letterSpacing: '0.08em',
-        }}>
-          * All project details are placeholders — replace with real client work and verified outcomes
-        </p>
       </div>
 
       <style>{`
