@@ -132,6 +132,7 @@ const Team = () => {
                       onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('open-booking-modal')) }}>
                       Apply Now ↗
                     </a>
+                  ) : (
                     <div style={{ display: 'flex', gap: '16px' }}>
                       {member.social.linkedin && (
                         <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', transition: 'color 200ms ease' }} onMouseEnter={(e) => e.currentTarget.style.color = '#0a66c2'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}>
