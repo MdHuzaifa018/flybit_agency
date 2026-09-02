@@ -13,7 +13,7 @@ const TEAM_MEMBERS = [
     role: 'Lead Full-Stack Developer',
     image: 'https://res.cloudinary.com/qpxxnswd/image/upload/v1786433302/techugrow/nyhu86z23ho6skxvz1rd.jpg',
     desc: 'Architects high-performance, conversion-optimized web applications and digital ecosystems for our clients.',
-    social: { linkedin: '#', whatsapp: 'https://wa.me/918318956754', portfolio: '#' }
+    social: { linkedin: '#', whatsapp: 'https://wa.me/919137568285', portfolio: 'https://latest-portfolio-huzaif-sheikh.vercel.app/' }
   },
   {
     name: 'Marcus Vance',

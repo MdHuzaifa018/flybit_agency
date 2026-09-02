@@ -2,30 +2,30 @@ import React, { useState } from 'react'
 
 const WEB_PROJECTS = [
   {
-    title: 'EdTech Course Portal',
+    title: 'Website for Flybit Falcon',
     client: 'Flybit Falcon',
     metric: 'Sub-1s Load Time',
     desc: 'A high-performance Next.js application built for scale. Includes secure video streaming, user dashboards, and integrated payment gateways.',
-    tags: ['React', 'Next.js', 'Stripe'],
+    tags: ['React','framer-motion' , 'shadcn ui'],
     image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1200',
     color: '#1A65E3'
   },
   {
-    title: 'High-Converting Landing Page',
-    client: 'Local MedSpa',
-    metric: '12% Conversion Rate',
-    desc: 'A sales-focused landing page optimized for Meta Ads traffic. Clean typography, trust badges, and seamless WhatsApp lead generation.',
-    tags: ['UI/UX', 'Landing Page', 'Conversion'],
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200',
+    title: 'Abhay Foundation (NGO)',
+    client: 'Abhay Foundation (NGO)',
+    metric: '10k+ Visits',
+    desc: 'full stack web application with custom admin dashboard and secure payment gateways.',
+    tags: ['UI/UX', 'Next.js', 'Payment Gateways', 'Admin Dashboard','framer-motion','shadcn ui'],
+    image: 'https://iili.io/nHdsaoX.md.png',
     color: '#16a34a'
   },
   {
-    title: 'Luxury E-Commerce Store',
-    client: 'Premium Fashion Brand',
+    title: 'Digital Marketing Landing Page',
+    client: 'Flybit Falcon',
     metric: '₹25L Monthly Sales',
-    desc: 'Custom Shopify headless build offering an immersive shopping experience. Features dynamic cart, upsell funnels, and premium aesthetics.',
-    tags: ['E-Commerce', 'Shopify', 'Animations'],
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=1200',
+    desc: 'Custom landing page designed for high-converting digital marketing campaigns.',
+    tags: ['React', 'Framer Motion', 'Animations', 'High-Converting'],
+    image: 'https://iili.io/BQ901pa.md.png',
     color: '#e11d48'
   }
 ]
