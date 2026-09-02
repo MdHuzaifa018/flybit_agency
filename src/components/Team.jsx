@@ -13,21 +13,28 @@ const TEAM_MEMBERS = [
     role: 'Lead Full-Stack Developer',
     image: 'https://res.cloudinary.com/qpxxnswd/image/upload/v1786433302/techugrow/nyhu86z23ho6skxvz1rd.jpg',
     desc: 'Architects high-performance, conversion-optimized web applications and digital ecosystems for our clients.',
-    social: { linkedin: '#', whatsapp: 'https://wa.me/919137568285', portfolio: 'https://latest-portfolio-huzaif-sheikh.vercel.app/' }
+    social: { linkedin: 'https://www.linkedin.com/in/huzaif-sheikh-6443a6330', whatsapp: 'https://wa.me/8434890116', portfolio: 'https://latest-portfolio-huzaif-sheikh.vercel.app/' }
   },
   {
-    name: 'Marcus Vance',
-    role: 'Senior UI/UX Designer',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400',
-    desc: 'Creative visionary crafting stunning brand identities and premium, conversion-focused website interfaces.',
+    name: 'Manoj Pal',
+    role: 'Content Creator and Graphics Designer',
+    image: 'https://flybitfalcon.com/app/public/uploads/others/1744653241_02efe21434619495e0fd.jpg',
+    desc: 'Specializes in crafting compelling narratives and visually striking designs that elevate brands and capture audience attention.',
     social: { linkedin: '#', instagram: '#' }
   },
   {
-    name: 'Julian Reid',
+    name: 'Rohit Kumar',
     role: 'Lead Video Editor',
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400',
+    image: 'https://flybitfalcon.com/app/public/uploads/others/1743526739_218852854e7f8ed8f758.jpg',
     desc: 'Master of retention editing, dynamic motion graphics, and viral short-form content creation.',
     social: { instagram: '#' }
+  },
+  {
+    name: 'Jatin Srivastava',
+    role: 'Sales and Marketing Head',
+    image: 'https://flybitfalcon.com/app/public/uploads/others/1743526791_e9ef4c0dad8d74422e7d.jpg',
+    desc: 'Expert in pipeline management, client acquisition, and driving measurable revenue growth through strategic sales initiatives.',
+    social: { linkedin: '#', instagram: '#' }
   }
 ]
 
