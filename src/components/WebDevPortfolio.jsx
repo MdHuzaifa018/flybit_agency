@@ -2,13 +2,14 @@ import React, { useState } from 'react'
 
 const WEB_PROJECTS = [
   {
-    title: 'Website for Flybit Falcon',
-    client: 'Flybit Falcon',
+    title: 'Coaching Website',
+    client: 'founder',
     metric: 'Sub-1s Load Time',
-    desc: 'A high-performance Next.js application built for scale. Includes secure video streaming, user dashboards, and integrated payment gateways.',
+    desc: 'A high-performance React.js application built for scale. Includes secure video streaming, user dashboards, and integrated payment gateways.',
     tags: ['React','framer-motion' , 'shadcn ui'],
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1200',
-    color: '#1A65E3'
+    image: 'https://iili.io/nHdZqtS.md.png',
+    color: '#1A65E3',
+    link: 'https://inspector-coaching-web.vercel.app'
   },
   {
     title: 'Abhay Foundation (NGO)',
@@ -17,7 +18,8 @@ const WEB_PROJECTS = [
     desc: 'full stack web application with custom admin dashboard and secure payment gateways.',
     tags: ['UI/UX', 'Next.js', 'Payment Gateways', 'Admin Dashboard','framer-motion','shadcn ui'],
     image: 'https://iili.io/nHdsaoX.md.png',
-    color: '#16a34a'
+    color: '#16a34a',
+    link: 'https://www.foundationabhay.org'
   },
   {
     title: 'Digital Marketing Landing Page',
@@ -26,8 +28,32 @@ const WEB_PROJECTS = [
     desc: 'Custom landing page designed for high-converting digital marketing campaigns.',
     tags: ['React', 'Framer Motion', 'Animations', 'High-Converting'],
     image: 'https://iili.io/BQ901pa.md.png',
-    color: '#e11d48'
+    color: '#e11d48',
+    link: 'https://adnan-affiliate-web.vercel.app'
+  },
+  {
+    title: 'Subrahmanya Institute website',
+    client: 'Institute director ',
+    metric: '5k+ Visits',
+    desc: 'full stack web application with custom admin dashboard.',
+    tags: ['UI/UX', 'Next.js', 'Payment Gateways', 'Admin Dashboard','framer-motion','shadcn ui'],
+    image: 'https://iili.io/BQ90c21.md.webp',
+    color: '#16a34a',
+    link: 'https://sri-subramanya-educational-institut.vercel.app/'
+  },
+  {
+    title: 'TechUgrow startup website',
+    client: 'Amritaansh Sinha founder',
+    metric: 'Startup Website ',
+    desc: 'full stack web application for startup with custom admin dashboard.',
+    tags: ['React', 'Framer Motion', 'Animations', 'High-Converting'],
+    image: 'https://iili.io/nHBvizP.md.png',
+    color: '#e11d48',
+    link: 'https://techugrow.vercel.app/'
   }
+
+
+
 ]
 
 const WebDevPortfolio = () => {
@@ -119,9 +145,26 @@ const WebDevPortfolio = () => {
                   </div>
                   
                   {/* Metric Box */}
-                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', padding: '12px 20px', borderRadius: '12px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)' }}>
-                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: project.color, boxShadow: `0 0 10px ${project.color}` }} />
-                    <span style={{ fontSize: '14px', fontWeight: '700', color: '#fff' }}>Result: {project.metric}</span>
+                  <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', alignItems: 'center' }}>
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', padding: '12px 20px', borderRadius: '12px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)' }}>
+                      <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: project.color, boxShadow: `0 0 10px ${project.color}` }} />
+                      <span style={{ fontSize: '14px', fontWeight: '700', color: '#fff' }}>Result: {project.metric}</span>
+                    </div>
+
+                    {project.link && (
+                      <a href={project.link} target="_blank" rel="noopener noreferrer" style={{
+                        display: 'inline-flex', alignItems: 'center', gap: '8px',
+                        padding: '12px 20px', borderRadius: '12px',
+                        background: 'transparent', border: `1px solid ${project.color}50`,
+                        color: project.color, fontSize: '14px', fontWeight: '700', textDecoration: 'none',
+                        transition: 'all 200ms ease'
+                      }}
+                      onMouseEnter={(e) => { e.currentTarget.style.background = `${project.color}15`; e.currentTarget.style.borderColor = project.color }}
+                      onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = `${project.color}50` }}
+                      >
+                        Visit Live Site ↗
+                      </a>
+                    )}
                   </div>
                 </div>
 
