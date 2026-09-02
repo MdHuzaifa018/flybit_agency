@@ -92,7 +92,7 @@ const FinalCTA = () => {
         </p>
 
         <div className="reveal-up delay-2" style={{ display: 'flex', justifyContent: 'center', gap: '14px', flexWrap: 'wrap', marginBottom: '60px' }}>
-          <a href="mailto:hello@flybitagency.com" data-cursor="START"
+          <a href="mailto:adnan.business1565@gmail.com" data-cursor="START"
             style={{
               display: 'inline-flex', alignItems: 'center', gap: '8px',
               fontFamily: 'var(--font-display)', fontSize: '13px', fontWeight: '600',
@@ -109,7 +109,7 @@ const FinalCTA = () => {
               <path d="M7 17L17 7M17 7H7M17 7v10"/>
             </svg>
           </a>
-          <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" data-cursor="BOOK"
+          <a href="#book" onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('open-booking-modal')) }} data-cursor="BOOK"
             style={{
               display: 'inline-flex', alignItems: 'center', gap: '8px',
               fontFamily: 'var(--font-display)', fontSize: '13px', fontWeight: '600',
@@ -132,8 +132,8 @@ const FinalCTA = () => {
           paddingTop: '40px', borderTop: '1px solid rgba(255,255,255,0.1)',
         }}>
           {[
-            { label: 'Direct Call / WhatsApp', value: '+91 8318956754', href: 'tel:+918318956754' },
-            { label: 'Official Email', value: 'support@flybitfalcon.com', href: 'mailto:support@flybitfalcon.com' },
+            { label: 'Direct Call / WhatsApp', value: '+91 91375 68285', href: 'tel:+919137568285' },
+            { label: 'Official Email', value: 'adnan.business1565@gmail.com', href: 'mailto:adnan.business1565@gmail.com' },
             { label: 'Location', value: 'Lucknow, Uttar Pradesh' },
             { label: 'EdTech Platform', value: 'flybitfalcon.com ↗', href: 'https://flybitfalcon.com', external: true },
           ].map((item) => (

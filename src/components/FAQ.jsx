@@ -153,7 +153,7 @@ const FAQ = () => {
               href="#contact"
               className="btn btn-primary reveal-up delay-2"
               style={{ fontSize: '12px', padding: '14px 28px', boxShadow: '0 6px 20px rgba(0,0,0,0.12)' }}
-              onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }) }}
+              onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('open-booking-modal')) }}
             >
               Book a Strategy Call ↗
             </a>

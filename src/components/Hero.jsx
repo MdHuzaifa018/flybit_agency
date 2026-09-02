@@ -315,7 +315,7 @@ const Hero = () => {
               href="#contact"
               className="btn btn-primary"
               data-cursor="START"
-              onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }) }}
+              onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('open-booking-modal')) }}
               style={{ fontSize: '13px', padding: '14px 28px' }}
             >
               Book Strategy Call

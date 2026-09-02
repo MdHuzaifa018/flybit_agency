@@ -147,7 +147,7 @@ const Navbar = () => {
             </a>
             <a
               href="#contact"
-              onClick={(e) => { e.preventDefault(); handleNavClick('#contact') }}
+              onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('open-booking-modal')); setMenuOpen(false) }}
               className="btn btn-primary"
               style={{ padding: '9px 20px', fontSize: '12px' }}
             >
@@ -343,14 +343,14 @@ const Navbar = () => {
           <a
             href="#contact"
             className="btn btn-primary"
-            onClick={(e) => { e.preventDefault(); handleNavClick('#contact') }}
+            onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('open-booking-modal')); setMenuOpen(false) }}
             style={{ justifyContent: 'center', fontSize: '13px', padding: '13px', width: '100%' }}
           >
             Book Strategy Call ↗
           </a>
 
           <a
-            href="tel:+918318956754"
+            href="tel:+919137568285"
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -367,7 +367,7 @@ const Navbar = () => {
               textDecoration: 'none',
             }}
           >
-            📞 WhatsApp / Call: +91 8318956754
+            📞 WhatsApp / Call: +91 91375 68285
           </a>
 
           <a

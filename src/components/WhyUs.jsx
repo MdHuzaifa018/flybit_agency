@@ -102,7 +102,7 @@ const WhyUs = () => {
             Ready to see if we're the right fit?
           </p>
           <a href="#contact" className="btn btn-primary" style={{ fontSize: '13px', padding: '14px 28px' }}
-            onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }) }}>
+            onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('open-booking-modal')) }}>
             Book a Strategy Call ↗
           </a>
         </div>

@@ -12,12 +12,12 @@ const FOOTER_SERVICES = [
   'Creator UGC Content',
 ]
 
-const POPULAR_COURSES = [
-  { label: 'Elite Package', href: 'https://flybitfalcon.com' },
-  { label: 'Star Package', href: 'https://flybitfalcon.com' },
-  { label: 'Branding Package', href: 'https://flybitfalcon.com' },
-  { label: 'Trend Mastery', href: 'https://flybitfalcon.com' },
-  { label: "FlyAd's Mastery", href: 'https://flybitfalcon.com' },
+const CONSULTANCY_SERVICES = [
+  { label: '1-on-1 Strategy Call', href: '#contact' },
+  { label: 'Zoom Consultancy', href: '#contact' },
+  { label: 'Business Audit', href: '#contact' },
+  { label: 'Ad Account Review', href: '#contact' },
+  { label: 'Custom Action Plan', href: '#contact' },
 ]
 
 const SOCIAL_LINKS = [
@@ -154,18 +154,17 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Ecosystem Courses */}
+          {/* Consultancy Services */}
           <div>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#FFB800', marginBottom: '18px', fontWeight: '700' }}>
-              Popular Courses
+              Consultancy
             </div>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', padding: 0 }}>
-              {POPULAR_COURSES.map((item) => (
+              {CONSULTANCY_SERVICES.map((item) => (
                 <li key={item.label}>
                   <a
                     href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    onClick={(e) => { e.preventDefault(); scrollTo(item.href) }}
                     style={{ fontSize: '13px', color: 'rgba(249,247,242,0.6)', transition: 'color 200ms ease', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px' }}
                     onMouseEnter={(e) => e.currentTarget.style.color = '#38bdf8'}
                     onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(249,247,242,0.6)'}
@@ -187,15 +186,15 @@ const Footer = () => {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <div>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase' }}>Phone</div>
-                <a href="tel:+918318956754" style={{ fontSize: '14px', fontWeight: '700', color: '#F9F7F2', textDecoration: 'none' }}>
-                  +91 8318956754
+                <a href="tel:+919137568285" style={{ fontSize: '14px', fontWeight: '700', color: '#F9F7F2', textDecoration: 'none' }}>
+                  +91 91375 68285
                 </a>
               </div>
 
               <div>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase' }}>Email</div>
-                <a href="mailto:support@flybitfalcon.com" style={{ fontSize: '14px', fontWeight: '600', color: '#FFB800', textDecoration: 'none' }}>
-                  support@flybitfalcon.com
+                <a href="mailto:adnan.business1565@gmail.com" style={{ fontSize: '14px', fontWeight: '600', color: '#FFB800', textDecoration: 'none' }}>
+                  adnan.business1565@gmail.com
                 </a>
               </div>
 

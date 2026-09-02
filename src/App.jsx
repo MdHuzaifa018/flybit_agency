@@ -8,12 +8,16 @@ import FlybitFalcon from './components/FlybitFalcon'
 import Services from './components/Services'
 import FeaturedWork from './components/FeaturedWork'
 import Portfolio from './components/Portfolio'
+import WebDevPortfolio from './components/WebDevPortfolio'
+import Team from './components/Team'
 import Process from './components/Process'
 import WhyUs from './components/WhyUs'
 import Testimonials from './components/Testimonials'
 import FAQ from './components/FAQ'
+import Consultancy from './components/Consultancy'
 import FinalCTA from './components/FinalCTA'
 import Footer from './components/Footer'
+import BookingModal from './components/BookingModal'
 
 function App() {
   // Reveal animation on scroll
@@ -37,6 +41,9 @@ function App() {
 
   return (
     <>
+      {/* Global Booking Modal */}
+      <BookingModal />
+
       {/* Film grain overlay */}
       <div className="noise-overlay" aria-hidden="true" />
 
@@ -55,10 +62,13 @@ function App() {
         <Services />
         <FeaturedWork />
         <Portfolio />
+        <WebDevPortfolio />
         <Process />
         <WhyUs />
+        <Team />
         <Testimonials />
         <FAQ />
+        <Consultancy />
         <FinalCTA />
       </main>
 
