@@ -128,7 +128,7 @@ const Hero = () => {
 
       const cx = canvas.width / 2
       const cy = canvas.height / 2
-      const orbit = Math.min(canvas.width, canvas.height) * 0.38
+      const orbit = 175
       const mxOffset = (mouseRef.current.x - 0.5) * 20
       const myOffset = (mouseRef.current.y - 0.5) * 20
 
@@ -278,7 +278,7 @@ const Hero = () => {
           {/* Headline */}
           <h1 style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(2.4rem, 5.5vw, 5.2rem)',
+            fontSize: 'clamp(2rem, 8vw, 5.2rem)',
             fontWeight: '800',
             lineHeight: '0.96',
             letterSpacing: '-0.035em',
@@ -523,7 +523,7 @@ const Hero = () => {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 135px), 1fr))',
             gap: '8px',
             width: '100%',
           }}>
