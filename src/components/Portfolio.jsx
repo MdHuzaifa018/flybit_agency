@@ -239,12 +239,12 @@ const PortfolioCard = ({ item, index }) => {
     <div
       style={{
         borderRadius: 'var(--radius-xl)',
-        background: hovered ? `${item.color}08` : 'var(--bg-elevated)',
+        background: hovered ? '#17150F' : 'var(--bg-elevated)',
         border: `1.5px solid ${hovered ? item.color : 'var(--border-subtle)'}`,
         overflow: 'hidden',
-        transition: 'all 350ms cubic-bezier(0.16, 1, 0.3, 1)',
+        transition: 'all 400ms cubic-bezier(0.16, 1, 0.3, 1)',
         transform: hovered ? 'translateY(-8px) scale(1.01)' : 'none',
-        boxShadow: hovered ? `0 24px 50px ${item.color}20, 0 4px 16px rgba(0,0,0,0.06)` : '0 2px 10px rgba(0,0,0,0.03)',
+        boxShadow: hovered ? `0 28px 60px -10px ${item.color}35, 0 0 25px ${item.color}20` : '0 2px 10px rgba(0,0,0,0.03)',
         cursor: 'pointer',
         display: 'flex',
         flexDirection: 'column',
@@ -256,24 +256,26 @@ const PortfolioCard = ({ item, index }) => {
       {/* Visual Header Mockup */}
       <div style={{
         height: '140px',
-        background: `linear-gradient(145deg, ${item.color}15 0%, ${item.color}05 100%)`,
+        background: `linear-gradient(145deg, ${item.color}20 0%, ${item.color}08 100%)`,
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
         padding: '16px',
         position: 'relative',
-        borderBottom: `1px solid ${hovered ? `${item.color}30` : 'var(--border-subtle)'}`,
+        borderBottom: `1px solid ${hovered ? `${item.color}40` : 'var(--border-subtle)'}`,
       }}>
         {/* Top badge row */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{
             width: '36px', height: '36px',
             borderRadius: '10px',
-            background: 'var(--bg-elevated)',
+            background: hovered ? item.color : 'var(--bg-elevated)',
             border: `1px solid ${item.color}30`,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             fontSize: '18px',
             boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
+            color: hovered ? '#FFFFFF' : 'inherit',
+            transition: 'all 300ms ease',
           }}>
             {item.icon}
           </div>
@@ -285,9 +287,10 @@ const PortfolioCard = ({ item, index }) => {
             textTransform: 'uppercase',
             padding: '4px 10px',
             borderRadius: '100px',
-            background: 'var(--bg-elevated)',
+            background: hovered ? '#17150F' : 'var(--bg-elevated)',
             color: item.color,
-            border: `1px solid ${item.color}30`,
+            border: `1px solid ${item.color}40`,
+            transition: 'all 300ms ease',
           }}>
             {item.metric}
           </span>
@@ -297,8 +300,8 @@ const PortfolioCard = ({ item, index }) => {
         <div style={{
           display: 'flex', gap: '6px', alignItems: 'center',
         }}>
-          <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: item.color, opacity: 0.8 }} />
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--text-secondary)', fontWeight: '500' }}>
+          <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: item.color, opacity: 0.9, boxShadow: `0 0 8px ${item.color}` }} />
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: hovered ? 'rgba(255,255,255,0.7)' : 'var(--text-secondary)', fontWeight: '600' }}>
             Verified Deliverable
           </span>
         </div>
@@ -313,12 +316,13 @@ const PortfolioCard = ({ item, index }) => {
               <span key={tag} style={{
                 fontFamily: 'var(--font-mono)',
                 fontSize: '9px',
-                padding: '2px 8px',
+                padding: '3px 8px',
                 borderRadius: '6px',
-                background: 'var(--bg-surface)',
-                color: 'var(--text-secondary)',
+                background: hovered ? 'rgba(255, 255, 255, 0.08)' : 'var(--bg-surface)',
+                color: hovered ? '#FFFFFF' : 'var(--text-secondary)',
                 letterSpacing: '0.04em',
                 fontWeight: '600',
+                transition: 'all 300ms ease',
               }}>
                 {tag}
               </span>
@@ -329,19 +333,21 @@ const PortfolioCard = ({ item, index }) => {
             fontFamily: 'var(--font-display)',
             fontSize: '16px',
             fontWeight: '800',
-            color: 'var(--text-primary)',
+            color: hovered ? '#FFFFFF' : 'var(--text-primary)',
             marginBottom: '8px',
             letterSpacing: '-0.02em',
             lineHeight: 1.25,
+            transition: 'color 300ms ease',
           }}>
             {item.title}
           </div>
 
           <p style={{
             fontSize: '13px',
-            color: 'var(--text-secondary)',
+            color: hovered ? 'rgba(255,255,255,0.72)' : 'var(--text-secondary)',
             lineHeight: '1.6',
             marginBottom: '16px',
+            transition: 'color 300ms ease',
           }}>
             {item.desc}
           </p>
@@ -351,7 +357,7 @@ const PortfolioCard = ({ item, index }) => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          borderTop: '1px solid var(--border-subtle)',
+          borderTop: `1px solid ${hovered ? 'rgba(255,255,255,0.12)' : 'var(--border-subtle)'}`,
           paddingTop: '12px',
         }}>
           <span style={{

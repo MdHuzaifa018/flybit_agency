@@ -55,46 +55,67 @@ const WhyUs = () => {
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: '20px' }}>
-          {PILLARS.map((pillar, i) => (
-            <div key={pillar.title} className="reveal-up"
-              style={{
-                transitionDelay: `${i * 80}ms`,
-                padding: 'clamp(1.5rem, 3vw, 2.5rem)',
-                borderRadius: 'var(--radius-xl)',
-                background: 'var(--bg-elevated)',
-                border: '1px solid var(--border-subtle)',
-                position: 'relative', overflow: 'hidden',
-                transition: 'all 350ms var(--ease-out)',
-                boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = `${pillar.color}40`
-                e.currentTarget.style.transform = 'translateY(-4px)'
-                e.currentTarget.style.boxShadow = `0 12px 40px rgba(0,0,0,0.10)`
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'var(--border-subtle)'
-                e.currentTarget.style.transform = 'none'
-                e.currentTarget.style.boxShadow = '0 2px 12px rgba(0,0,0,0.04)'
-              }}
-            >
-              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: `linear-gradient(to right, ${pillar.color}, transparent)`, opacity: 0.7 }} />
-              <div style={{
-                width: '52px', height: '52px', borderRadius: '12px',
-                background: `${pillar.color}10`, border: `1px solid ${pillar.color}20`,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: '22px', color: pillar.color, marginBottom: '20px',
-              }}>
-                {pillar.icon}
+          {PILLARS.map((pillar, i) => {
+            const [isHovered, setIsHovered] = React.useState(false)
+            return (
+              <div key={pillar.title} className="reveal-up"
+                style={{
+                  transitionDelay: `${i * 80}ms`,
+                  padding: 'clamp(1.5rem, 3vw, 2.5rem)',
+                  borderRadius: 'var(--radius-xl)',
+                  background: isHovered ? '#17150F' : 'var(--bg-elevated)',
+                  border: `1.5px solid ${isHovered ? pillar.color : 'var(--border-subtle)'}`,
+                  position: 'relative', overflow: 'hidden',
+                  transition: 'all 400ms cubic-bezier(0.16, 1, 0.3, 1)',
+                  boxShadow: isHovered ? `0 24px 50px -10px ${pillar.color}30, 0 0 20px ${pillar.color}15` : '0 2px 12px rgba(0,0,0,0.04)',
+                  transform: isHovered ? 'translateY(-8px) scale(1.01)' : 'none',
+                  cursor: 'pointer',
+                }}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: `linear-gradient(to right, ${pillar.color}, transparent)`, opacity: isHovered ? 1 : 0.7 }} />
+                
+                {/* Glow aura */}
+                <div style={{
+                  position: 'absolute', top: 0, right: 0,
+                  width: '160px', height: '160px', borderRadius: '50%',
+                  background: `radial-gradient(circle, ${pillar.color}25 0%, transparent 70%)`,
+                  transform: 'translate(30%, -30%)',
+                  opacity: isHovered ? 1 : 0,
+                  transition: 'opacity 400ms ease',
+                  pointerEvents: 'none',
+                }} />
+
+                <div style={{
+                  width: '52px', height: '52px', borderRadius: '14px',
+                  background: isHovered ? pillar.color : `${pillar.color}10`,
+                  border: `1px solid ${isHovered ? pillar.color : `${pillar.color}20`}`,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontSize: '22px', color: isHovered ? '#FFFFFF' : pillar.color,
+                  marginBottom: '20px',
+                  transition: 'all 350ms ease',
+                  transform: isHovered ? 'scale(1.1) rotate(4deg)' : 'none',
+                  boxShadow: isHovered ? `0 8px 20px ${pillar.color}40` : 'none',
+                }}>
+                  {pillar.icon}
+                </div>
+                <h3 style={{
+                  fontFamily: 'var(--font-display)', fontSize: '1.15rem', fontWeight: '800',
+                  letterSpacing: '-0.02em', color: isHovered ? '#FFFFFF' : 'var(--text-primary)',
+                  marginBottom: '10px', transition: 'color 300ms ease',
+                }}>
+                  {pillar.title}
+                </h3>
+                <p style={{
+                  fontSize: '14px', color: isHovered ? 'rgba(255,255,255,0.75)' : 'var(--text-secondary)',
+                  lineHeight: '1.7', transition: 'color 300ms ease',
+                }}>
+                  {pillar.description}
+                </p>
               </div>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.05rem', fontWeight: '700', letterSpacing: '-0.02em', color: 'var(--text-primary)', marginBottom: '10px' }}>
-                {pillar.title}
-              </h3>
-              <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: '1.7' }}>
-                {pillar.description}
-              </p>
-            </div>
-          ))}
+            )
+          })}
         </div>
 
         <div className="reveal-up" style={{ marginTop: '56px', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '24px', flexWrap: 'wrap' }}>

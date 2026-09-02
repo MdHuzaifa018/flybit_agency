@@ -154,13 +154,24 @@ const WebDevPortfolio = () => {
                     {project.link && (
                       <a href={project.link} target="_blank" rel="noopener noreferrer" style={{
                         display: 'inline-flex', alignItems: 'center', gap: '8px',
-                        padding: '12px 20px', borderRadius: '12px',
-                        background: 'transparent', border: `1px solid ${project.color}50`,
-                        color: project.color, fontSize: '14px', fontWeight: '700', textDecoration: 'none',
-                        transition: 'all 200ms ease'
+                        padding: '12px 24px', borderRadius: '12px',
+                        background: 'transparent', border: `1.5px solid ${project.color}`,
+                        color: project.color, fontSize: '14px', fontWeight: '800', textDecoration: 'none',
+                        transition: 'all 300ms cubic-bezier(0.16, 1, 0.3, 1)',
+                        boxShadow: `0 4px 15px ${project.color}20`,
                       }}
-                      onMouseEnter={(e) => { e.currentTarget.style.background = `${project.color}15`; e.currentTarget.style.borderColor = project.color }}
-                      onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = `${project.color}50` }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = project.color
+                        e.currentTarget.style.color = '#FFFFFF'
+                        e.currentTarget.style.boxShadow = `0 10px 25px ${project.color}60`
+                        e.currentTarget.style.transform = 'translateY(-2px)'
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = 'transparent'
+                        e.currentTarget.style.color = project.color
+                        e.currentTarget.style.boxShadow = `0 4px 15px ${project.color}20`
+                        e.currentTarget.style.transform = 'none'
+                      }}
                       >
                         Visit Live Site ↗
                       </a>

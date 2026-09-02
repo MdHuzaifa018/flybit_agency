@@ -114,15 +114,15 @@ const ServiceCard = ({ service, index }) => {
         style={{
           padding: 'clamp(1.5rem, 3vw, 2.5rem)',
           borderRadius: 'var(--radius-xl)',
-          background: hovered ? `${service.color}0a` : 'var(--bg-elevated)',
+          background: hovered ? '#17150F' : 'var(--bg-elevated)',
           border: `1.5px solid ${hovered ? service.color : 'var(--border-subtle)'}`,
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
           gap: '18px',
-          transition: 'all 350ms cubic-bezier(0.16, 1, 0.3, 1)',
+          transition: 'all 400ms cubic-bezier(0.16, 1, 0.3, 1)',
           transform: hovered ? 'translateY(-8px) scale(1.01)' : 'none',
-          boxShadow: hovered ? `0 24px 50px ${service.color}20, 0 4px 16px rgba(0,0,0,0.06)` : '0 2px 10px rgba(0,0,0,0.02)',
+          boxShadow: hovered ? `0 28px 60px -10px ${service.color}35, 0 0 25px ${service.color}20` : '0 2px 10px rgba(0,0,0,0.02)',
           position: 'relative',
           overflow: 'hidden',
         }}
@@ -133,16 +133,16 @@ const ServiceCard = ({ service, index }) => {
         {/* Glow corner */}
         <div style={{
           position: 'absolute', top: 0, right: 0,
-          width: '180px', height: '180px', borderRadius: '50%',
-          background: `radial-gradient(circle, ${service.color}18 0%, transparent 70%)`,
+          width: '220px', height: '220px', borderRadius: '50%',
+          background: `radial-gradient(circle, ${service.color}30 0%, transparent 70%)`,
           transform: 'translate(30%, -30%)',
-          opacity: hovered ? 1 : 0.4,
-          transition: 'opacity 400ms ease',
+          opacity: hovered ? 1 : 0.2,
+          transition: 'opacity 400ms ease, transform 400ms ease',
           pointerEvents: 'none',
         }} />
 
         {/* Header row */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', position: 'relative', zIndex: 2 }}>
           <div>
             <div style={{
               fontFamily: 'var(--font-mono)',
@@ -159,8 +159,9 @@ const ServiceCard = ({ service, index }) => {
               fontSize: isLarge ? 'clamp(1.35rem, 2vw, 1.75rem)' : '1.35rem',
               fontWeight: '800',
               letterSpacing: '-0.02em',
-              color: 'var(--text-primary)',
+              color: hovered ? '#FFFFFF' : 'var(--text-primary)',
               lineHeight: 1.2,
+              transition: 'color 300ms ease',
             }}>
               {service.name}
             </div>
@@ -168,27 +169,29 @@ const ServiceCard = ({ service, index }) => {
               fontFamily: 'var(--font-mono)',
               fontSize: '10px',
               letterSpacing: '0.08em',
-              color: 'var(--text-secondary)',
+              color: hovered ? 'rgba(255,255,255,0.6)' : 'var(--text-secondary)',
               marginTop: '4px',
               textTransform: 'uppercase',
               fontWeight: '600',
+              transition: 'color 300ms ease',
             }}>
               {service.short}
             </div>
           </div>
 
           <div style={{
-            width: '44px', height: '44px',
+            width: '46px', height: '46px',
             borderRadius: '12px',
-            background: `${service.color}12`,
-            border: `1px solid ${service.color}30`,
+            background: hovered ? service.color : `${service.color}12`,
+            border: `1px solid ${hovered ? service.color : `${service.color}30`}`,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             fontSize: '20px',
             flexShrink: 0,
-            transition: 'transform 300ms var(--ease-spring)',
-            transform: hovered ? 'scale(1.12)' : 'none',
+            transition: 'all 350ms cubic-bezier(0.16, 1, 0.3, 1)',
+            transform: hovered ? 'scale(1.1) rotate(4deg)' : 'none',
+            boxShadow: hovered ? `0 8px 20px ${service.color}40` : 'none',
           }}>
             {service.icon}
           </div>
@@ -197,26 +200,30 @@ const ServiceCard = ({ service, index }) => {
         {/* Description */}
         <p style={{
           fontSize: '14px',
-          color: 'var(--text-secondary)',
+          color: hovered ? 'rgba(255,255,255,0.75)' : 'var(--text-secondary)',
           lineHeight: '1.7',
           flex: 1,
+          transition: 'color 300ms ease',
+          position: 'relative',
+          zIndex: 2,
         }}>
           {service.description}
         </p>
 
         {/* Deliverables */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', position: 'relative', zIndex: 2 }}>
           {service.deliverables.map((d) => (
             <span key={d} style={{
               fontFamily: 'var(--font-mono)',
               fontSize: '9px',
               padding: '4px 10px',
               borderRadius: '100px',
-              background: `${service.color}08`,
-              border: `1px solid ${service.color}20`,
-              color: service.color,
+              background: hovered ? 'rgba(255, 255, 255, 0.08)' : `${service.color}08`,
+              border: `1px solid ${hovered ? 'rgba(255, 255, 255, 0.18)' : `${service.color}20`}`,
+              color: hovered ? '#FFFFFF' : service.color,
               letterSpacing: '0.04em',
               fontWeight: '700',
+              transition: 'all 300ms ease',
             }}>
               {d}
             </span>
@@ -235,8 +242,10 @@ const ServiceCard = ({ service, index }) => {
           color: hovered ? service.color : 'var(--text-muted)',
           transition: 'color 300ms ease',
           fontWeight: '700',
-          borderTop: '1px solid var(--border-subtle)',
+          borderTop: `1px solid ${hovered ? 'rgba(255,255,255,0.12)' : 'var(--border-subtle)'}`,
           paddingTop: '14px',
+          position: 'relative',
+          zIndex: 2,
         }}>
           <span>Get Started With {service.name}</span>
           <svg
