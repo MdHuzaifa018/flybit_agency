@@ -1,4 +1,10 @@
 import React, { useState } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay, Navigation, Pagination } from 'swiper/modules'
+
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 const WHATSAPP_PROOFS = [
   {
@@ -75,17 +81,17 @@ const WHATSAPP_PROOFS = [
   },
 ]
 
-// Web Development & Tech Client Card Reviews (Photo & Card Type)
+// Web Development & Tech Client Card Reviews (Photo & Card Type with Large Images)
 const WEB_DEV_REVIEWS = [
   {
     id: 'wd1',
-    name: 'Abhay Pratap Singh',
+    name: 'Abhay Raj',
     role: 'Founder & Director',
     company: 'Abhay Foundation (NGO)',
-    metric: '10,000+ Visits · Secure Donations',
+    metric: '10,000+ Visits · Donations',
     tag: 'Full-Stack Web App',
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200',
+    image: 'https://www.foundationabhay.org/_next/image?url=%2Fteam%2Fceo.png&w=640&q=75',
     color: '#16a34a',
     quote: 'Huzaifa built a flawless donation platform and custom admin dashboard for our NGO. The website is blazing fast, beautiful on mobile, and streamlined our entire operations with zero issues.',
     verified: 'Verified Client'
@@ -95,10 +101,10 @@ const WEB_DEV_REVIEWS = [
     name: 'Amritaansh Sinha',
     role: 'Founder',
     company: 'TechUgrow Startup',
-    metric: 'Sub-1s Speed · 99 Performance',
-    tag: 'Startup Web Ecosystem',
+    metric: 'Sub-1s Speed · 99 Score',
+    tag: 'Startup Web Platform',
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200',
+    image: 'https://res.cloudinary.com/qpxxnswd/image/upload/v1785381988/techugrow/xoo5ibyhkvqfgs04xx0x.png',
     color: '#1A65E3',
     quote: 'Working with Huzaifa was an absolute game changer. The UI/UX animations, responsive architecture, and backend integrations helped us establish immediate trust with our startup users.',
     verified: 'Verified Client'
@@ -111,7 +117,7 @@ const WEB_DEV_REVIEWS = [
     metric: '5k+ Active Inquiries',
     tag: 'Educational Portal',
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200',
+    image: 'https://sri-subramanya-educational-institut.vercel.app/img/dir.jpg',
     color: '#7c3aed',
     quote: 'The portal handles student admissions, course catalogs, and automated inquiry capture smoothly. Huzaifa delivered beyond our expectations with clean modern code and incredible support.',
     verified: 'Verified Client'
@@ -124,7 +130,7 @@ const WEB_DEV_REVIEWS = [
     metric: '300% Higher Conversions',
     tag: 'Coaching Website',
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=200',
+    image: 'https://inspector-coaching-web.vercel.app/founder2.jpg',
     color: '#FFB800',
     quote: 'Our old website was slow and losing leads. The new high-retention React application built by Huzaifa loaded instantly and tripled our student lead flow in the first month itself.',
     verified: 'Verified Client'
@@ -250,7 +256,7 @@ const Testimonials = () => {
                 transition: 'all 200ms ease',
               }}
             >
-              💬 WhatsApp Chat Proofs
+              💬 WhatsApp Proofs
             </button>
             <button
               onClick={() => setActiveCategory('webdev')}
@@ -284,7 +290,7 @@ const Testimonials = () => {
               </div>
             )}
 
-            {/* Hero Interactive WhatsApp Showcase */}
+            {/* Hero Interactive WhatsApp Showcase with Bigger Screenshot */}
             <div className="reveal-up" style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))',
@@ -408,18 +414,18 @@ const Testimonials = () => {
                 </div>
               </div>
 
-              {/* Right Column: Screenshot Card (Click to Enlarge) */}
+              {/* Right Column: Big Screenshot Card (Click to Enlarge) */}
               <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <div
                   onClick={() => setSelectedImage(activeProof.image)}
                   style={{
                     position: 'relative',
                     width: '100%',
-                    maxWidth: '340px',
-                    height: '460px',
+                    maxWidth: '380px',
+                    height: '520px',
                     borderRadius: '24px',
                     overflow: 'hidden',
-                    boxShadow: '0 20px 40px rgba(0,0,0,0.12)',
+                    boxShadow: '0 24px 50px rgba(0,0,0,0.15)',
                     border: '4px solid #1f2c34',
                     cursor: 'pointer',
                     transition: 'transform 300ms ease, box-shadow 300ms ease',
@@ -427,11 +433,11 @@ const Testimonials = () => {
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'scale(1.02) translateY(-4px)'
-                    e.currentTarget.style.boxShadow = '0 28px 60px rgba(0,0,0,0.2)'
+                    e.currentTarget.style.boxShadow = '0 30px 65px rgba(0,0,0,0.22)'
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'scale(1) translateY(0)'
-                    e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.12)'
+                    e.currentTarget.style.boxShadow = '0 24px 50px rgba(0,0,0,0.15)'
                   }}
                 >
                   <img
@@ -449,7 +455,7 @@ const Testimonials = () => {
                   <div style={{
                     position: 'absolute',
                     inset: 0,
-                    background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%)',
+                    background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 60%)',
                     display: 'flex',
                     alignItems: 'flex-end',
                     justifyContent: 'center',
@@ -474,201 +480,251 @@ const Testimonials = () => {
                 </div>
               </div>
             </div>
-
-            {/* 4 Quick WhatsApp Cards */}
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
-              gap: '16px',
-            }}>
-              {WHATSAPP_PROOFS.map((proof, idx) => (
-                <div
-                  key={proof.id}
-                  onClick={() => setActiveProofIndex(idx)}
-                  style={{
-                    background: activeProofIndex === idx ? `${proof.color}08` : 'var(--bg-elevated)',
-                    border: `1.5px solid ${activeProofIndex === idx ? proof.color : 'var(--border-subtle)'}`,
-                    borderRadius: '20px',
-                    padding: '18px',
-                    cursor: 'pointer',
-                    transition: 'all 250ms ease',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                  }}
-                >
-                  <div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                      <span style={{
-                        fontFamily: 'var(--font-mono)', fontSize: '10px', fontWeight: '800',
-                        color: proof.color, background: `${proof.color}15`,
-                        padding: '3px 10px', borderRadius: '100px',
-                      }}>
-                        {proof.metric}
-                      </span>
-                      <span style={{ color: '#22c55e', fontSize: '11px', fontWeight: '700' }}>✓ Verified</span>
-                    </div>
-                    <p style={{
-                      fontSize: '12px',
-                      color: 'var(--text-secondary)',
-                      lineHeight: '1.5',
-                      marginBottom: '12px',
-                      display: '-webkit-box',
-                      WebkitLineClamp: 2,
-                      WebkitBoxOrient: 'vertical',
-                      overflow: 'hidden',
-                    }}>
-                      "{proof.summary}"
-                    </p>
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--border-subtle)', paddingTop: '10px' }}>
-                    <span style={{ fontFamily: 'var(--font-display)', fontSize: '13px', fontWeight: '700', color: 'var(--text-primary)' }}>
-                      {proof.name}
-                    </span>
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        setSelectedImage(proof.image)
-                      }}
-                      style={{
-                        background: 'var(--bg-surface)',
-                        border: '1px solid var(--border-medium)',
-                        borderRadius: '6px',
-                        padding: '4px 8px',
-                        fontSize: '10px',
-                        fontWeight: '700',
-                        cursor: 'pointer',
-                      }}
-                    >
-                      View 👁️
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         )}
 
-        {/* 2. WEB DEVELOPMENT & CLIENT CARD REVIEWS (Visible if 'all' or 'webdev') */}
+        {/* 2. WEB DEVELOPMENT & CLIENT CARD REVIEWS WITH SWIPER.JS (Auto Scroll Right-to-Left + Arrows) */}
         {(activeCategory === 'all' || activeCategory === 'webdev') && (
-          <div>
-            {activeCategory === 'all' && (
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
+          <div style={{ position: 'relative' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '16px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', fontWeight: '800', color: '#1A65E3', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
                   💻 Web Development & Tech Client Reviews
                 </span>
-                <div style={{ flex: 1, height: '1px', background: 'var(--border-subtle)' }} />
+                <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
+                  (Swipe / Auto-scrolling ⇄)
+                </span>
               </div>
-            )}
 
-            {/* 4 Card Type Review Grid with Client Avatars */}
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
-              gap: '24px',
-            }}>
-              {WEB_DEV_REVIEWS.map((rev) => (
-                <div
-                  key={rev.id}
-                  className="reveal-up"
+              {/* Navigation Arrows for Swiper */}
+              <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                <button
+                  id="prevReviewBtn"
+                  aria-label="Previous Review"
                   style={{
+                    width: '42px',
+                    height: '42px',
+                    borderRadius: '50%',
                     background: 'var(--bg-elevated)',
-                    border: '1.5px solid var(--border-subtle)',
-                    borderRadius: '24px',
-                    padding: '24px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    boxShadow: '0 10px 30px rgba(0,0,0,0.02)',
-                    transition: 'transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-6px)'
-                    e.currentTarget.style.borderColor = rev.color
-                    e.currentTarget.style.boxShadow = `0 18px 40px ${rev.color}15`
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'none'
-                    e.currentTarget.style.borderColor = 'var(--border-subtle)'
-                    e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,0,0,0.02)'
-                  }}
-                >
-                  <div>
-                    {/* Top Row: Stars + Project Tag */}
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
-                      <div style={{ color: '#FFB800', fontSize: '14px', letterSpacing: '1px' }}>
-                        {'★'.repeat(rev.rating)}
-                      </div>
-                      <span style={{
-                        fontFamily: 'var(--font-mono)', fontSize: '10px', fontWeight: '800',
-                        color: rev.color, background: `${rev.color}15`,
-                        padding: '3px 10px', borderRadius: '100px',
-                      }}>
-                        {rev.tag}
-                      </span>
-                    </div>
-
-                    {/* Result Metric */}
-                    <div style={{
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '11px',
-                      fontWeight: '800',
-                      color: 'var(--text-primary)',
-                      background: 'var(--bg-surface)',
-                      border: '1px solid var(--border-subtle)',
-                      padding: '6px 12px',
-                      borderRadius: '8px',
-                      marginBottom: '16px',
-                      display: 'inline-block',
-                    }}>
-                      ⚡ Result: {rev.metric}
-                    </div>
-
-                    {/* Quote */}
-                    <blockquote style={{
-                      fontFamily: 'var(--font-display)',
-                      fontSize: '14px',
-                      color: 'var(--text-secondary)',
-                      lineHeight: '1.65',
-                      marginBottom: '20px',
-                      margin: 0,
-                    }}>
-                      "{rev.quote}"
-                    </blockquote>
-                  </div>
-
-                  {/* Client Info with Photo / Avatar */}
-                  <div style={{
+                    border: '1.5px solid var(--border-medium)',
+                    color: 'var(--text-primary)',
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '14px',
-                    borderTop: '1px solid var(--border-subtle)',
-                    paddingTop: '16px',
-                    marginTop: '16px',
-                  }}>
-                    <img
-                      src={rev.image}
-                      alt={rev.name}
-                      style={{
-                        width: '44px',
-                        height: '44px',
-                        borderRadius: '50%',
-                        objectFit: 'cover',
-                        border: `2px solid ${rev.color}`,
-                      }}
-                    />
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                    fontSize: '18px',
+                    fontWeight: '700',
+                    transition: 'all 200ms ease',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.04)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = '#1A65E3'
+                    e.currentTarget.style.color = '#fff'
+                    e.currentTarget.style.borderColor = '#1A65E3'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'var(--bg-elevated)'
+                    e.currentTarget.style.color = 'var(--text-primary)'
+                    e.currentTarget.style.borderColor = 'var(--border-medium)'
+                  }}
+                >
+                  ‹
+                </button>
+                <button
+                  id="nextReviewBtn"
+                  aria-label="Next Review"
+                  style={{
+                    width: '42px',
+                    height: '42px',
+                    borderRadius: '50%',
+                    background: 'var(--bg-elevated)',
+                    border: '1.5px solid var(--border-medium)',
+                    color: 'var(--text-primary)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                    fontSize: '18px',
+                    fontWeight: '700',
+                    transition: 'all 200ms ease',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.04)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = '#1A65E3'
+                    e.currentTarget.style.color = '#fff'
+                    e.currentTarget.style.borderColor = '#1A65E3'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'var(--bg-elevated)'
+                    e.currentTarget.style.color = 'var(--text-primary)'
+                    e.currentTarget.style.borderColor = 'var(--border-medium)'
+                  }}
+                >
+                  ›
+                </button>
+              </div>
+            </div>
+
+            {/* SWIPER COMPONENT */}
+            <Swiper
+              modules={[Autoplay, Navigation, Pagination]}
+              spaceBetween={24}
+              slidesPerView={1}
+              loop={true}
+              speed={800}
+              autoplay={{
+                delay: 3500,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
+              navigation={{
+                prevEl: '#prevReviewBtn',
+                nextEl: '#nextReviewBtn',
+              }}
+              pagination={{
+                clickable: true,
+                dynamicBullets: true,
+              }}
+              breakpoints={{
+                640: {
+                  slidesPerView: 1.5,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 2,
+                  spaceBetween: 24,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 24,
+                },
+              }}
+              style={{ paddingBottom: '48px' }}
+            >
+              {WEB_DEV_REVIEWS.map((rev) => (
+                <SwiperSlide key={rev.id} style={{ height: 'auto', display: 'flex' }}>
+                  <div
+                    style={{
+                      background: 'var(--bg-elevated)',
+                      border: '1.5px solid var(--border-subtle)',
+                      borderRadius: '26px',
+                      padding: '28px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      boxShadow: '0 12px 36px rgba(0,0,0,0.03)',
+                      transition: 'transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease',
+                      width: '100%',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-6px)'
+                      e.currentTarget.style.borderColor = rev.color
+                      e.currentTarget.style.boxShadow = `0 20px 48px ${rev.color}18`
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'none'
+                      e.currentTarget.style.borderColor = 'var(--border-subtle)'
+                      e.currentTarget.style.boxShadow = '0 12px 36px rgba(0,0,0,0.03)'
+                    }}
+                  >
                     <div>
-                      <div style={{ fontFamily: 'var(--font-display)', fontSize: '15px', fontWeight: '800', color: 'var(--text-primary)' }}>
-                        {rev.name}
+                      {/* Top Row: Stars + Project Tag */}
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px' }}>
+                        <div style={{ color: '#FFB800', fontSize: '15px', letterSpacing: '1px' }}>
+                          {'★'.repeat(rev.rating)}
+                        </div>
+                        <span style={{
+                          fontFamily: 'var(--font-mono)', fontSize: '10px', fontWeight: '800',
+                          color: rev.color, background: `${rev.color}15`,
+                          padding: '4px 12px', borderRadius: '100px',
+                        }}>
+                          {rev.tag}
+                        </span>
                       </div>
-                      <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-muted)', marginTop: '2px' }}>
-                        {rev.role} · <strong style={{ color: rev.color }}>{rev.company}</strong>
+
+                      {/* Result Metric */}
+                      <div style={{
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '11px',
+                        fontWeight: '800',
+                        color: 'var(--text-primary)',
+                        background: 'var(--bg-surface)',
+                        border: '1px solid var(--border-subtle)',
+                        padding: '6px 12px',
+                        borderRadius: '8px',
+                        marginBottom: '18px',
+                        display: 'inline-block',
+                      }}>
+                        ⚡ Result: {rev.metric}
+                      </div>
+
+                      {/* Quote */}
+                      <blockquote style={{
+                        fontFamily: 'var(--font-display)',
+                        fontSize: '14px',
+                        color: 'var(--text-secondary)',
+                        lineHeight: '1.7',
+                        marginBottom: '24px',
+                        margin: 0,
+                      }}>
+                        "{rev.quote}"
+                      </blockquote>
+                    </div>
+
+                    {/* Client Info with Big Photo / Avatar */}
+                    <div style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '16px',
+                      borderTop: '1px solid var(--border-subtle)',
+                      paddingTop: '20px',
+                      marginTop: '16px',
+                    }}>
+                      <div style={{ position: 'relative' }}>
+                        <img
+                          src={rev.image}
+                          alt={rev.name}
+                          style={{
+                            width: '64px',
+                            height: '64px',
+                            borderRadius: '16px',
+                            objectFit: 'cover',
+                            border: `2.5px solid ${rev.color}`,
+                            boxShadow: `0 6px 16px ${rev.color}25`,
+                          }}
+                        />
+                        <div style={{
+                          position: 'absolute',
+                          bottom: '-4px',
+                          right: '-4px',
+                          width: '18px',
+                          height: '18px',
+                          borderRadius: '50%',
+                          background: '#22c55e',
+                          color: '#fff',
+                          fontSize: '10px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          fontWeight: '800',
+                          border: '2px solid var(--bg-elevated)'
+                        }}>
+                          ✓
+                        </div>
+                      </div>
+                      <div>
+                        <div style={{ fontFamily: 'var(--font-display)', fontSize: '16px', fontWeight: '800', color: 'var(--text-primary)' }}>
+                          {rev.name}
+                        </div>
+                        <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-muted)', marginTop: '3px' }}>
+                          {rev.role} · <strong style={{ color: rev.color }}>{rev.company}</strong>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </SwiperSlide>
               ))}
-            </div>
+            </Swiper>
           </div>
         )}
       </div>
