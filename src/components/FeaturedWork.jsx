@@ -63,31 +63,33 @@ const ProjectMockup = ({ project, hovered }) => {
     return (
       <div style={{
         width: '100%', height: '100%',
-        padding: '24px', display: 'flex', flexDirection: 'column',
+        minHeight: '280px',
+        padding: 'clamp(14px, 3.5vw, 24px)', display: 'flex', flexDirection: 'column',
         justifyContent: 'space-between',
         background: 'linear-gradient(145deg, #0F172A 0%, #1E293B 100%)',
         borderRadius: 'var(--radius-xl)', color: '#fff',
         boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.1)',
+        overflow: 'hidden',
       }}>
         {/* Browser Top Bar */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '12px' }}>
-          <div style={{ display: 'flex', gap: '6px' }}>
-            <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ef4444' }} />
-            <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#eab308' }} />
-            <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#22c55e' }} />
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px' }}>
+          <div style={{ display: 'flex', gap: '5px' }}>
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ef4444' }} />
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#eab308' }} />
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#22c55e' }} />
           </div>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'rgba(255,255,255,0.6)', background: 'rgba(255,255,255,0.06)', padding: '3px 12px', borderRadius: '100px' }}>
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(8px, 2vw, 10px)', color: 'rgba(255,255,255,0.6)', background: 'rgba(255,255,255,0.06)', padding: '2px 10px', borderRadius: '100px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
             flybitfalcon.com/mastery-funnel
           </div>
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: '#38bdf8' }}>LIVE ⚡</span>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: '#38bdf8', fontWeight: '700' }}>LIVE ⚡</span>
         </div>
 
         {/* Dashboard Content */}
-        <div style={{ margin: '20px 0', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px' }}>
+        <div style={{ margin: 'clamp(10px, 2vw, 18px) 0', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'clamp(6px, 1.5vw, 12px)' }}>
           {project.stats.map((s, i) => (
-            <div key={i} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', padding: '14px 12px' }}>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: '#94a3b8', textTransform: 'uppercase' }}>{s.label}</div>
-              <div style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: '800', color: '#38bdf8', marginTop: '4px' }}>{s.val}</div>
+            <div key={i} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '10px', padding: 'clamp(8px, 1.5vw, 12px) clamp(6px, 1vw, 10px)', textAlign: 'center' }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(7px, 1.8vw, 9px)', color: '#94a3b8', textTransform: 'uppercase' }}>{s.label}</div>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(14px, 3vw, 20px)', fontWeight: '800', color: '#38bdf8', marginTop: '2px' }}>{s.val}</div>
             </div>
           ))}
         </div>
@@ -96,22 +98,22 @@ const ProjectMockup = ({ project, hovered }) => {
         <div style={{
           background: 'rgba(56, 189, 248, 0.08)',
           border: '1px solid rgba(56, 189, 248, 0.2)',
-          borderRadius: '12px', padding: '16px',
+          borderRadius: '12px', padding: 'clamp(10px, 2vw, 14px)',
           display: 'flex', alignItems: 'center', justifyContent: 'space-around',
         }}>
           <div style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: '18px' }}>🎯</div>
-            <div style={{ fontSize: '10px', color: '#94a3b8', marginTop: '4px' }}>Meta Ad Hook</div>
+            <div style={{ fontSize: 'clamp(14px, 3vw, 18px)' }}>🎯</div>
+            <div style={{ fontSize: 'clamp(8px, 2vw, 10px)', color: '#94a3b8', marginTop: '2px' }}>Meta Ad Hook</div>
           </div>
-          <div style={{ color: '#38bdf8', fontSize: '14px' }}>➔</div>
+          <div style={{ color: '#38bdf8', fontSize: '12px' }}>➔</div>
           <div style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: '18px' }}>⚡</div>
-            <div style={{ fontSize: '10px', color: '#94a3b8', marginTop: '4px' }}>Landing Page</div>
+            <div style={{ fontSize: 'clamp(14px, 3vw, 18px)' }}>⚡</div>
+            <div style={{ fontSize: 'clamp(8px, 2vw, 10px)', color: '#94a3b8', marginTop: '2px' }}>Landing Page</div>
           </div>
-          <div style={{ color: '#38bdf8', fontSize: '14px' }}>➔</div>
+          <div style={{ color: '#38bdf8', fontSize: '12px' }}>➔</div>
           <div style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: '18px' }}>💰</div>
-            <div style={{ fontSize: '10px', color: '#22c55e', marginTop: '4px', fontWeight: '700' }}>Direct Sale</div>
+            <div style={{ fontSize: 'clamp(14px, 3vw, 18px)' }}>💰</div>
+            <div style={{ fontSize: 'clamp(8px, 2vw, 10px)', color: '#22c55e', marginTop: '2px', fontWeight: '700' }}>Direct Sale</div>
           </div>
         </div>
       </div>
@@ -122,29 +124,31 @@ const ProjectMockup = ({ project, hovered }) => {
     return (
       <div style={{
         width: '100%', height: '100%',
-        padding: '24px', display: 'flex', flexDirection: 'column',
+        minHeight: '280px',
+        padding: 'clamp(14px, 3.5vw, 24px)', display: 'flex', flexDirection: 'column',
         justifyContent: 'space-between',
         background: 'linear-gradient(145deg, #1C1917 0%, #292524 100%)',
         borderRadius: 'var(--radius-xl)', color: '#fff',
         boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.1)',
+        overflow: 'hidden',
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '12px' }}>
-          <div style={{ display: 'flex', gap: '6px' }}>
-            <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ef4444' }} />
-            <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#eab308' }} />
-            <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#22c55e' }} />
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px' }}>
+          <div style={{ display: 'flex', gap: '5px' }}>
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ef4444' }} />
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#eab308' }} />
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#22c55e' }} />
           </div>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: '#FFB800' }}>
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(8px, 2vw, 10px)', color: '#FFB800' }}>
             STOREFRONT + ADS 📈
           </div>
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: '#22c55e' }}>+180% REVENUE</span>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: '#22c55e', fontWeight: '700' }}>+180% REVENUE</span>
         </div>
 
-        <div style={{ margin: '20px 0', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px' }}>
+        <div style={{ margin: 'clamp(10px, 2vw, 18px) 0', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'clamp(6px, 1.5vw, 12px)' }}>
           {project.stats.map((s, i) => (
-            <div key={i} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', padding: '14px 12px' }}>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: '#a8a29e', textTransform: 'uppercase' }}>{s.label}</div>
-              <div style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: '800', color: '#FFB800', marginTop: '4px' }}>{s.val}</div>
+            <div key={i} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '10px', padding: 'clamp(8px, 1.5vw, 12px) clamp(6px, 1vw, 10px)', textAlign: 'center' }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(7px, 1.8vw, 9px)', color: '#a8a29e', textTransform: 'uppercase' }}>{s.label}</div>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(14px, 3vw, 20px)', fontWeight: '800', color: '#FFB800', marginTop: '2px' }}>{s.val}</div>
             </div>
           ))}
         </div>
@@ -152,19 +156,19 @@ const ProjectMockup = ({ project, hovered }) => {
         <div style={{
           background: 'rgba(255, 184, 0, 0.08)',
           border: '1px solid rgba(255, 184, 0, 0.25)',
-          borderRadius: '12px', padding: '14px',
+          borderRadius: '12px', padding: 'clamp(10px, 2vw, 14px)',
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: 'rgba(255,184,0,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(255,184,0,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px', flexShrink: 0 }}>
               🛍️
             </div>
             <div>
-              <div style={{ fontSize: '12px', fontWeight: '700', color: '#fff' }}>Shopify Performance + UGC Ads</div>
-              <div style={{ fontSize: '10px', color: '#a8a29e' }}>Scaled across Instagram & Google PMax</div>
+              <div style={{ fontSize: 'clamp(10px, 2.2vw, 12px)', fontWeight: '700', color: '#fff' }}>Shopify Performance + UGC Ads</div>
+              <div style={{ fontSize: 'clamp(8px, 1.8vw, 10px)', color: '#a8a29e' }}>Scaled across Instagram & Google</div>
             </div>
           </div>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#FFB800', fontWeight: '700' }}>3.9x ROAS</div>
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(10px, 2.2vw, 12px)', color: '#FFB800', fontWeight: '700', flexShrink: 0 }}>3.9x ROAS</div>
         </div>
       </div>
     )
@@ -173,29 +177,31 @@ const ProjectMockup = ({ project, hovered }) => {
   return (
     <div style={{
       width: '100%', height: '100%',
-      padding: '24px', display: 'flex', flexDirection: 'column',
+      minHeight: '280px',
+      padding: 'clamp(14px, 3.5vw, 24px)', display: 'flex', flexDirection: 'column',
       justifyContent: 'space-between',
       background: 'linear-gradient(145deg, #064E3B 0%, #022C22 100%)',
       borderRadius: 'var(--radius-xl)', color: '#fff',
       boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.1)',
+      overflow: 'hidden',
     }}>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '12px' }}>
-        <div style={{ display: 'flex', gap: '6px' }}>
-          <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ef4444' }} />
-          <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#eab308' }} />
-          <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#22c55e' }} />
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px' }}>
+        <div style={{ display: 'flex', gap: '5px' }}>
+          <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ef4444' }} />
+          <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#eab308' }} />
+          <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#22c55e' }} />
         </div>
-        <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: '#4ade80' }}>
+        <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(8px, 2vw, 10px)', color: '#4ade80' }}>
           LEAD GENERATION ENGINE
         </div>
-        <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: '#4ade80' }}>920+ LEADS</span>
+        <span style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: '#4ade80', fontWeight: '700' }}>920+ LEADS</span>
       </div>
 
-      <div style={{ margin: '20px 0', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px' }}>
+      <div style={{ margin: 'clamp(10px, 2vw, 18px) 0', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'clamp(6px, 1.5vw, 12px)' }}>
         {project.stats.map((s, i) => (
-          <div key={i} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', padding: '14px 12px' }}>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: '#a7f3d0', textTransform: 'uppercase' }}>{s.label}</div>
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: '800', color: '#4ade80', marginTop: '4px' }}>{s.val}</div>
+          <div key={i} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '10px', padding: 'clamp(8px, 1.5vw, 12px) clamp(6px, 1vw, 10px)', textAlign: 'center' }}>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(7px, 1.8vw, 9px)', color: '#a7f3d0', textTransform: 'uppercase' }}>{s.label}</div>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(14px, 3vw, 20px)', fontWeight: '800', color: '#4ade80', marginTop: '2px' }}>{s.val}</div>
           </div>
         ))}
       </div>
@@ -203,19 +209,19 @@ const ProjectMockup = ({ project, hovered }) => {
       <div style={{
         background: 'rgba(74, 222, 128, 0.08)',
         border: '1px solid rgba(74, 222, 128, 0.25)',
-        borderRadius: '12px', padding: '14px',
+        borderRadius: '12px', padding: 'clamp(10px, 2vw, 14px)',
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: 'rgba(74,222,128,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(74,222,128,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px', flexShrink: 0 }}>
             🏢
           </div>
           <div>
-            <div style={{ fontSize: '12px', fontWeight: '700', color: '#fff' }}>Automated CRM & Lead Routing</div>
-            <div style={{ fontSize: '10px', color: '#a7f3d0' }}>Instant WhatsApp alert to sales team</div>
+            <div style={{ fontSize: 'clamp(10px, 2.2vw, 12px)', fontWeight: '700', color: '#fff' }}>Automated CRM & Lead Routing</div>
+            <div style={{ fontSize: 'clamp(8px, 1.8vw, 10px)', color: '#a7f3d0' }}>Instant WhatsApp alert to sales</div>
           </div>
         </div>
-        <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#4ade80', fontWeight: '700' }}>₹38 / Lead</div>
+        <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(10px, 2.2vw, 12px)', color: '#4ade80', fontWeight: '700', flexShrink: 0 }}>₹38 / Lead</div>
       </div>
     </div>
   )
@@ -229,23 +235,23 @@ const FeaturedWork = () => {
       id="work"
       style={{
         background: 'var(--bg-base)',
-        padding: 'clamp(5rem, 10vw, 10rem) 0',
+        padding: 'clamp(4rem, 8vw, 8rem) 0',
         borderTop: '1px solid var(--border-subtle)',
       }}
     >
       <div className="container">
-        {/* Header */}
+        {/* Section Header */}
         <div style={{
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'flex-end',
           flexWrap: 'wrap',
-          gap: '32px',
-          marginBottom: 'clamp(3rem, 6vw, 6rem)',
+          gap: '24px',
+          marginBottom: 'clamp(3rem, 6vw, 5rem)',
         }}>
-          <div style={{ maxWidth: '600px' }}>
+          <div>
             <div className="section-eyebrow reveal-fade">
-              <span className="text-label">Featured Case Studies</span>
+              <span className="text-label">Featured Growth Systems</span>
             </div>
             <h2 className="text-display-md reveal-up">
               Proven Results That Speak{' '}
@@ -258,15 +264,6 @@ const FeaturedWork = () => {
                 Louder Than Words.
               </span>
             </h2>
-            <p className="reveal-up delay-1" style={{
-              fontSize: '1rem',
-              color: 'var(--text-secondary)',
-              lineHeight: '1.7',
-              marginTop: '16px',
-            }}>
-              A showcase of actual growth systems, campaigns, and digital architectures built
-              and scaled by Flybit Agency.
-            </p>
           </div>
 
           <a
@@ -279,8 +276,8 @@ const FeaturedWork = () => {
           </a>
         </div>
 
-        {/* Projects — alternating editorial layout */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(4rem, 8vw, 7rem)' }}>
+        {/* Projects — alternating responsive layout */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(3.5rem, 6vw, 6rem)' }}>
           {PROJECTS.map((project, i) => (
             <article
               key={project.id}
@@ -288,8 +285,8 @@ const FeaturedWork = () => {
               className="reveal-up"
               style={{
                 display: 'grid',
-                gridTemplateColumns: i % 2 === 0 ? '1.1fr 1fr' : '1fr 1.1fr',
-                gap: 'clamp(2rem, 4vw, 5rem)',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
+                gap: 'clamp(1.5rem, 4vw, 4rem)',
                 alignItems: 'center',
               }}
             >
@@ -298,10 +295,13 @@ const FeaturedWork = () => {
                 style={{
                   order: i % 2 === 0 ? 1 : 2,
                   position: 'relative',
-                  aspectRatio: '16/11',
+                  width: '100%',
+                  minHeight: '280px',
                   borderRadius: 'var(--radius-2xl)',
                   transition: 'transform 350ms var(--ease-spring)',
                   transform: hoveredProject === project.id ? 'translateY(-6px)' : 'none',
+                  overflow: 'hidden',
+                  boxShadow: '0 16px 40px rgba(0,0,0,0.06)',
                 }}
                 onMouseEnter={() => setHoveredProject(project.id)}
                 onMouseLeave={() => setHoveredProject(null)}
