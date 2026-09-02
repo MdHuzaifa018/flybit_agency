@@ -41,14 +41,16 @@ const Cursor = () => {
     }
 
     const onEnterLink = () => {
-      ringEl.style.width = '52px'
-      ringEl.style.height = '52px'
-      ringEl.style.borderColor = 'rgba(23,21,15,0.6)'
+      ringEl.style.width = '56px'
+      ringEl.style.height = '56px'
+      ringEl.style.borderColor = 'rgba(255, 255, 255, 0.9)'
+      ringEl.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'
     }
     const onLeaveLink = () => {
       ringEl.style.width = '40px'
       ringEl.style.height = '40px'
-      ringEl.style.borderColor = 'rgba(23,21,15,0.25)'
+      ringEl.style.borderColor = 'rgba(255, 255, 255, 0.6)'
+      ringEl.style.backgroundColor = 'transparent'
     }
 
     document.querySelectorAll('a, button, [data-cursor]').forEach((el) => {
@@ -67,30 +69,31 @@ const Cursor = () => {
 
   return (
     <>
-      {/* Dot */}
+      {/* Dot - Inverts automatically on light & dark backgrounds */}
       <div ref={dotRef} className="hide-mobile" aria-hidden="true" style={{
         position: 'fixed', top: 0, left: 0,
         width: '8px', height: '8px', borderRadius: '50%',
-        background: 'var(--text-primary)',
-        pointerEvents: 'none', zIndex: 99999,
-        mixBlendMode: 'normal',
+        background: '#FFFFFF',
+        pointerEvents: 'none', zIndex: 999999,
+        mixBlendMode: 'difference',
         transition: 'opacity 200ms ease',
       }} />
 
-      {/* Ring */}
+      {/* Ring - Inverts automatically on light & dark backgrounds */}
       <div ref={ringRef} className="hide-mobile" aria-hidden="true" style={{
         position: 'fixed', top: 0, left: 0,
         width: '40px', height: '40px', borderRadius: '50%',
-        border: '1.5px solid rgba(23,21,15,0.25)',
-        pointerEvents: 'none', zIndex: 99998,
-        transition: 'width 300ms var(--ease-spring), height 300ms var(--ease-spring), border-color 300ms ease',
+        border: '1.5px solid rgba(255, 255, 255, 0.65)',
+        pointerEvents: 'none', zIndex: 999998,
+        mixBlendMode: 'difference',
+        transition: 'width 300ms var(--ease-spring), height 300ms var(--ease-spring), border-color 300ms ease, background-color 300ms ease',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
       }}>
         {/* Label inside ring */}
         <span ref={labelRef} aria-hidden="true" style={{
           fontFamily: 'var(--font-mono)', fontSize: '8px',
-          fontWeight: '600', letterSpacing: '0.08em',
-          textTransform: 'uppercase', color: 'var(--text-primary)',
+          fontWeight: '700', letterSpacing: '0.08em',
+          textTransform: 'uppercase', color: '#FFFFFF',
           opacity: 0, transition: 'opacity 200ms ease',
           userSelect: 'none',
         }} />
