@@ -66,7 +66,7 @@ const WhyUs = () => {
                   background: isHovered ? '#17150F' : 'var(--bg-elevated)',
                   border: `1.5px solid ${isHovered ? pillar.color : 'var(--border-subtle)'}`,
                   position: 'relative', overflow: 'hidden',
-                  transition: 'all 400ms cubic-bezier(0.16, 1, 0.3, 1)',
+                  transition: 'background-color 550ms cubic-bezier(0.25, 1, 0.5, 1), border-color 550ms cubic-bezier(0.25, 1, 0.5, 1), transform 550ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 550ms cubic-bezier(0.16, 1, 0.3, 1)',
                   boxShadow: isHovered ? `0 24px 50px -10px ${pillar.color}30, 0 0 20px ${pillar.color}15` : '0 2px 12px rgba(0,0,0,0.04)',
                   transform: isHovered ? 'translateY(-8px) scale(1.01)' : 'none',
                   cursor: 'pointer',
@@ -74,7 +74,7 @@ const WhyUs = () => {
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
               >
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: `linear-gradient(to right, ${pillar.color}, transparent)`, opacity: isHovered ? 1 : 0.7 }} />
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: `linear-gradient(to right, ${pillar.color}, transparent)`, opacity: isHovered ? 1 : 0.7, transition: 'opacity 550ms ease' }} />
                 
                 {/* Glow aura */}
                 <div style={{
@@ -83,7 +83,7 @@ const WhyUs = () => {
                   background: `radial-gradient(circle, ${pillar.color}25 0%, transparent 70%)`,
                   transform: 'translate(30%, -30%)',
                   opacity: isHovered ? 1 : 0,
-                  transition: 'opacity 400ms ease',
+                  transition: 'opacity 550ms cubic-bezier(0.25, 1, 0.5, 1)',
                   pointerEvents: 'none',
                 }} />
 
@@ -94,7 +94,7 @@ const WhyUs = () => {
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   fontSize: '22px', color: isHovered ? '#FFFFFF' : pillar.color,
                   marginBottom: '20px',
-                  transition: 'all 350ms ease',
+                  transition: 'background-color 550ms cubic-bezier(0.25, 1, 0.5, 1), color 550ms cubic-bezier(0.25, 1, 0.5, 1), border-color 550ms cubic-bezier(0.25, 1, 0.5, 1), transform 550ms cubic-bezier(0.16, 1, 0.3, 1)',
                   transform: isHovered ? 'scale(1.1) rotate(4deg)' : 'none',
                   boxShadow: isHovered ? `0 8px 20px ${pillar.color}40` : 'none',
                 }}>
@@ -103,13 +103,13 @@ const WhyUs = () => {
                 <h3 style={{
                   fontFamily: 'var(--font-display)', fontSize: '1.15rem', fontWeight: '800',
                   letterSpacing: '-0.02em', color: isHovered ? '#FFFFFF' : 'var(--text-primary)',
-                  marginBottom: '10px', transition: 'color 300ms ease',
+                  marginBottom: '10px', transition: 'color 550ms cubic-bezier(0.25, 1, 0.5, 1)',
                 }}>
                   {pillar.title}
                 </h3>
                 <p style={{
                   fontSize: '14px', color: isHovered ? 'rgba(255,255,255,0.75)' : 'var(--text-secondary)',
-                  lineHeight: '1.7', transition: 'color 300ms ease',
+                  lineHeight: '1.7', transition: 'color 550ms cubic-bezier(0.25, 1, 0.5, 1)',
                 }}>
                   {pillar.description}
                 </p>

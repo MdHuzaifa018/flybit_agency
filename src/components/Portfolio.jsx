@@ -242,7 +242,7 @@ const PortfolioCard = ({ item, index }) => {
         background: hovered ? '#17150F' : 'var(--bg-elevated)',
         border: `1.5px solid ${hovered ? item.color : 'var(--border-subtle)'}`,
         overflow: 'hidden',
-        transition: 'all 400ms cubic-bezier(0.16, 1, 0.3, 1)',
+        transition: 'background-color 550ms cubic-bezier(0.25, 1, 0.5, 1), border-color 550ms cubic-bezier(0.25, 1, 0.5, 1), transform 550ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 550ms cubic-bezier(0.16, 1, 0.3, 1)',
         transform: hovered ? 'translateY(-8px) scale(1.01)' : 'none',
         boxShadow: hovered ? `0 28px 60px -10px ${item.color}35, 0 0 25px ${item.color}20` : '0 2px 10px rgba(0,0,0,0.03)',
         cursor: 'pointer',
@@ -263,6 +263,7 @@ const PortfolioCard = ({ item, index }) => {
         padding: '16px',
         position: 'relative',
         borderBottom: `1px solid ${hovered ? `${item.color}40` : 'var(--border-subtle)'}`,
+        transition: 'border-color 550ms cubic-bezier(0.25, 1, 0.5, 1)',
       }}>
         {/* Top badge row */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -275,7 +276,7 @@ const PortfolioCard = ({ item, index }) => {
             fontSize: '18px',
             boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
             color: hovered ? '#FFFFFF' : 'inherit',
-            transition: 'all 300ms ease',
+            transition: 'background-color 550ms cubic-bezier(0.25, 1, 0.5, 1), color 550ms cubic-bezier(0.25, 1, 0.5, 1)',
           }}>
             {item.icon}
           </div>
@@ -290,7 +291,7 @@ const PortfolioCard = ({ item, index }) => {
             background: hovered ? '#17150F' : 'var(--bg-elevated)',
             color: item.color,
             border: `1px solid ${item.color}40`,
-            transition: 'all 300ms ease',
+            transition: 'background-color 550ms cubic-bezier(0.25, 1, 0.5, 1), border-color 550ms cubic-bezier(0.25, 1, 0.5, 1)',
           }}>
             {item.metric}
           </span>
@@ -301,7 +302,7 @@ const PortfolioCard = ({ item, index }) => {
           display: 'flex', gap: '6px', alignItems: 'center',
         }}>
           <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: item.color, opacity: 0.9, boxShadow: `0 0 8px ${item.color}` }} />
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: hovered ? 'rgba(255,255,255,0.7)' : 'var(--text-secondary)', fontWeight: '600' }}>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: hovered ? 'rgba(255,255,255,0.7)' : 'var(--text-secondary)', fontWeight: '600', transition: 'color 550ms cubic-bezier(0.25, 1, 0.5, 1)' }}>
             Verified Deliverable
           </span>
         </div>
@@ -322,7 +323,7 @@ const PortfolioCard = ({ item, index }) => {
                 color: hovered ? '#FFFFFF' : 'var(--text-secondary)',
                 letterSpacing: '0.04em',
                 fontWeight: '600',
-                transition: 'all 300ms ease',
+                transition: 'background-color 550ms cubic-bezier(0.25, 1, 0.5, 1), color 550ms cubic-bezier(0.25, 1, 0.5, 1)',
               }}>
                 {tag}
               </span>
@@ -337,7 +338,7 @@ const PortfolioCard = ({ item, index }) => {
             marginBottom: '8px',
             letterSpacing: '-0.02em',
             lineHeight: 1.25,
-            transition: 'color 300ms ease',
+            transition: 'color 550ms cubic-bezier(0.25, 1, 0.5, 1)',
           }}>
             {item.title}
           </div>
@@ -347,7 +348,7 @@ const PortfolioCard = ({ item, index }) => {
             color: hovered ? 'rgba(255,255,255,0.72)' : 'var(--text-secondary)',
             lineHeight: '1.6',
             marginBottom: '16px',
-            transition: 'color 300ms ease',
+            transition: 'color 550ms cubic-bezier(0.25, 1, 0.5, 1)',
           }}>
             {item.desc}
           </p>
@@ -359,6 +360,7 @@ const PortfolioCard = ({ item, index }) => {
           alignItems: 'center',
           borderTop: `1px solid ${hovered ? 'rgba(255,255,255,0.12)' : 'var(--border-subtle)'}`,
           paddingTop: '12px',
+          transition: 'border-color 550ms cubic-bezier(0.25, 1, 0.5, 1)',
         }}>
           <span style={{
             fontFamily: 'var(--font-mono)',

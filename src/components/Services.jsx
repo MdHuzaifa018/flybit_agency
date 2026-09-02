@@ -120,7 +120,7 @@ const ServiceCard = ({ service, index }) => {
           display: 'flex',
           flexDirection: 'column',
           gap: '18px',
-          transition: 'all 400ms cubic-bezier(0.16, 1, 0.3, 1)',
+          transition: 'background-color 550ms cubic-bezier(0.25, 1, 0.5, 1), border-color 550ms cubic-bezier(0.25, 1, 0.5, 1), transform 550ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 550ms cubic-bezier(0.16, 1, 0.3, 1)',
           transform: hovered ? 'translateY(-8px) scale(1.01)' : 'none',
           boxShadow: hovered ? `0 28px 60px -10px ${service.color}35, 0 0 25px ${service.color}20` : '0 2px 10px rgba(0,0,0,0.02)',
           position: 'relative',
@@ -134,10 +134,10 @@ const ServiceCard = ({ service, index }) => {
         <div style={{
           position: 'absolute', top: 0, right: 0,
           width: '220px', height: '220px', borderRadius: '50%',
-          background: `radial-gradient(circle, ${service.color}30 0%, transparent 70%)`,
+          background: `radial-gradient(circle, ${service.color}35 0%, transparent 70%)`,
           transform: 'translate(30%, -30%)',
-          opacity: hovered ? 1 : 0.2,
-          transition: 'opacity 400ms ease, transform 400ms ease',
+          opacity: hovered ? 1 : 0.15,
+          transition: 'opacity 550ms cubic-bezier(0.25, 1, 0.5, 1), transform 550ms cubic-bezier(0.25, 1, 0.5, 1)',
           pointerEvents: 'none',
         }} />
 
@@ -161,7 +161,7 @@ const ServiceCard = ({ service, index }) => {
               letterSpacing: '-0.02em',
               color: hovered ? '#FFFFFF' : 'var(--text-primary)',
               lineHeight: 1.2,
-              transition: 'color 300ms ease',
+              transition: 'color 550ms cubic-bezier(0.25, 1, 0.5, 1)',
             }}>
               {service.name}
             </div>
@@ -173,7 +173,7 @@ const ServiceCard = ({ service, index }) => {
               marginTop: '4px',
               textTransform: 'uppercase',
               fontWeight: '600',
-              transition: 'color 300ms ease',
+              transition: 'color 550ms cubic-bezier(0.25, 1, 0.5, 1)',
             }}>
               {service.short}
             </div>
@@ -189,7 +189,7 @@ const ServiceCard = ({ service, index }) => {
             justifyContent: 'center',
             fontSize: '20px',
             flexShrink: 0,
-            transition: 'all 350ms cubic-bezier(0.16, 1, 0.3, 1)',
+            transition: 'background-color 550ms cubic-bezier(0.25, 1, 0.5, 1), border-color 550ms cubic-bezier(0.25, 1, 0.5, 1), transform 550ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 550ms cubic-bezier(0.16, 1, 0.3, 1)',
             transform: hovered ? 'scale(1.1) rotate(4deg)' : 'none',
             boxShadow: hovered ? `0 8px 20px ${service.color}40` : 'none',
           }}>
@@ -203,7 +203,7 @@ const ServiceCard = ({ service, index }) => {
           color: hovered ? 'rgba(255,255,255,0.75)' : 'var(--text-secondary)',
           lineHeight: '1.7',
           flex: 1,
-          transition: 'color 300ms ease',
+          transition: 'color 550ms cubic-bezier(0.25, 1, 0.5, 1)',
           position: 'relative',
           zIndex: 2,
         }}>
@@ -223,7 +223,7 @@ const ServiceCard = ({ service, index }) => {
               color: hovered ? '#FFFFFF' : service.color,
               letterSpacing: '0.04em',
               fontWeight: '700',
-              transition: 'all 300ms ease',
+              transition: 'background-color 550ms cubic-bezier(0.25, 1, 0.5, 1), border-color 550ms cubic-bezier(0.25, 1, 0.5, 1), color 550ms cubic-bezier(0.25, 1, 0.5, 1)',
             }}>
               {d}
             </span>
@@ -240,7 +240,7 @@ const ServiceCard = ({ service, index }) => {
           letterSpacing: '0.08em',
           textTransform: 'uppercase',
           color: hovered ? service.color : 'var(--text-muted)',
-          transition: 'color 300ms ease',
+          transition: 'color 550ms cubic-bezier(0.25, 1, 0.5, 1), border-color 550ms cubic-bezier(0.25, 1, 0.5, 1)',
           fontWeight: '700',
           borderTop: `1px solid ${hovered ? 'rgba(255,255,255,0.12)' : 'var(--border-subtle)'}`,
           paddingTop: '14px',
@@ -251,7 +251,7 @@ const ServiceCard = ({ service, index }) => {
           <svg
             width="14" height="14" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" strokeWidth="2.5"
-            style={{ transform: hovered ? 'translate(4px, -4px)' : 'none', transition: 'transform 300ms ease' }}
+            style={{ transform: hovered ? 'translate(4px, -4px)' : 'none', transition: 'transform 550ms cubic-bezier(0.16, 1, 0.3, 1)' }}
           >
             <path d="M7 17L17 7M17 7H7M17 7v10"/>
           </svg>

@@ -52,7 +52,7 @@ const TeamCard = ({ member, index }) => {
         boxShadow: hovered ? '0 28px 60px -10px rgba(255,184,0,0.3), 0 0 25px rgba(255,184,0,0.15)' : '0 12px 30px rgba(0,0,0,0.03)',
         display: 'flex',
         flexDirection: 'column',
-        transition: 'all 400ms cubic-bezier(0.16, 1, 0.3, 1)',
+        transition: 'background-color 550ms cubic-bezier(0.25, 1, 0.5, 1), border-color 550ms cubic-bezier(0.25, 1, 0.5, 1), transform 550ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 550ms cubic-bezier(0.16, 1, 0.3, 1)',
         transform: hovered ? 'translateY(-8px) scale(1.01)' : 'none',
         cursor: 'pointer',
       }}
@@ -68,7 +68,7 @@ const TeamCard = ({ member, index }) => {
             position: 'absolute', inset: 0, width: '100%', height: '100%',
             objectFit: 'cover', filter: hovered ? 'grayscale(0%)' : 'grayscale(20%)',
             transform: hovered ? 'scale(1.06)' : 'scale(1)',
-            transition: 'all 500ms cubic-bezier(0.16, 1, 0.3, 1)'
+            transition: 'all 600ms cubic-bezier(0.16, 1, 0.3, 1)'
           }}
         />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 45%)' }} />
@@ -91,7 +91,7 @@ const TeamCard = ({ member, index }) => {
           color: hovered ? 'rgba(255,255,255,0.75)' : 'var(--text-secondary)',
           lineHeight: '1.6',
           marginBottom: '24px',
-          transition: 'color 300ms ease'
+          transition: 'color 550ms cubic-bezier(0.25, 1, 0.5, 1)'
         }}>
           {member.desc}
         </p>
@@ -102,7 +102,7 @@ const TeamCard = ({ member, index }) => {
           gap: '12px',
           borderTop: `1px solid ${hovered ? 'rgba(255,255,255,0.12)' : 'var(--border-subtle)'}`,
           paddingTop: '16px',
-          transition: 'border-color 300ms ease'
+          transition: 'border-color 550ms cubic-bezier(0.25, 1, 0.5, 1)'
         }}>
           {member.social?.apply ? (
             <a href={member.social.apply} style={{ fontSize: '12px', fontWeight: '700', color: '#FFB800', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}
