@@ -239,12 +239,12 @@ const PortfolioCard = ({ item, index }) => {
     <div
       style={{
         borderRadius: 'var(--radius-xl)',
-        background: 'var(--bg-elevated)',
+        background: hovered ? `${item.color}08` : 'var(--bg-elevated)',
         border: `1.5px solid ${hovered ? item.color : 'var(--border-subtle)'}`,
         overflow: 'hidden',
-        transition: 'all 350ms var(--ease-spring)',
-        transform: hovered ? 'translateY(-6px)' : 'none',
-        boxShadow: hovered ? `0 16px 36px ${item.color}20, 0 2px 8px rgba(0,0,0,0.06)` : '0 2px 10px rgba(0,0,0,0.03)',
+        transition: 'all 350ms cubic-bezier(0.16, 1, 0.3, 1)',
+        transform: hovered ? 'translateY(-8px) scale(1.01)' : 'none',
+        boxShadow: hovered ? `0 24px 50px ${item.color}20, 0 4px 16px rgba(0,0,0,0.06)` : '0 2px 10px rgba(0,0,0,0.03)',
         cursor: 'pointer',
         display: 'flex',
         flexDirection: 'column',

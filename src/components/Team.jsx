@@ -83,24 +83,15 @@ const Team = () => {
           gap: '24px',
         }}>
           {TEAM_MEMBERS.map((member, i) => (
-            <div key={i} className={`reveal-up delay-${i % 4}`} style={{
+            <div key={i} className={`spotlight-card reveal-up delay-${i % 4}`} style={{
               background: 'var(--bg-elevated)',
               borderRadius: '24px',
               border: '1px solid var(--border-subtle)',
               overflow: 'hidden',
               boxShadow: '0 12px 30px rgba(0,0,0,0.03)',
               display: 'flex', flexDirection: 'column',
-              transition: 'transform 300ms ease, box-shadow 300ms ease',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-6px)'
-              e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.08)'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'none'
-              e.currentTarget.style.boxShadow = '0 12px 30px rgba(0,0,0,0.03)'
-            }}
-            >
+              transition: 'all 350ms cubic-bezier(0.16, 1, 0.3, 1)',
+            }}>
               {/* Image Container */}
               <div style={{ position: 'relative', width: '100%', paddingTop: '100%', overflow: 'hidden', background: 'var(--bg-surface)' }}>
                 <img 
